@@ -7,22 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682ED1541F0B77240075F0DB /* Annotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14B1F0B77240075F0DB /* Annotator.swift */; };
+		682ED1561F0B77240075F0DB /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14D1F0B77240075F0DB /* LocationController.swift */; };
+		682ED1571F0B77240075F0DB /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14E1F0B77240075F0DB /* LocationInfo.swift */; };
+		682ED1581F0B77240075F0DB /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14F1F0B77240075F0DB /* RegionManager.swift */; };
+		682ED1591F0B77240075F0DB /* mapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1511F0B77240075F0DB /* mapController.swift */; };
+		682ED15A1F0B77240075F0DB /* navController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1521F0B77240075F0DB /* navController.swift */; };
+		682ED15B1F0B77240075F0DB /* optionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1531F0B77240075F0DB /* optionsController.swift */; };
+		682ED15E1F0B774C0075F0DB /* Geocoders.m in Sources */ = {isa = PBXBuildFile; fileRef = 682ED15D1F0B774C0075F0DB /* Geocoders.m */; };
+		682ED1601F0B786A0075F0DB /* Automatron.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED15F1F0B786A0075F0DB /* Automatron.swift */; };
 		6858E0531F093364008FDFD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E0521F093364008FDFD7 /* AppDelegate.swift */; };
 		6858E0581F093364008FDFD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6858E0561F093364008FDFD7 /* Main.storyboard */; };
 		6858E05A1F093364008FDFD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6858E0591F093364008FDFD7 /* Assets.xcassets */; };
 		6858E05D1F093364008FDFD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6858E05B1F093364008FDFD7 /* LaunchScreen.storyboard */; };
 		6858E0661F0933A9008FDFD7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858E0651F0933A9008FDFD7 /* MapKit.framework */; };
-		6858E0681F0939B3008FDFD7 /* navController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E0671F0939B3008FDFD7 /* navController.swift */; };
-		6858E06A1F0939CF008FDFD7 /* mapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E0691F0939CF008FDFD7 /* mapController.swift */; };
-		6858E06C1F0939EA008FDFD7 /* optionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E06B1F0939EA008FDFD7 /* optionsController.swift */; };
-		6858E06E1F093C1A008FDFD7 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E06D1F093C1A008FDFD7 /* LocationInfo.swift */; };
-		6858E0701F093C35008FDFD7 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E06F1F093C35008FDFD7 /* LocationController.swift */; };
-		68CCABD61F0A11AB00DC21B0 /* Annotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CCABD51F0A11AB00DC21B0 /* Annotator.swift */; };
-		68CCABD81F0A11CF00DC21B0 /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CCABD71F0A11CF00DC21B0 /* RegionManager.swift */; };
-		68CCABDE1F0A9AF600DC21B0 /* Geocoders.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CCABDD1F0A9AF600DC21B0 /* Geocoders.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		682ED14B1F0B77240075F0DB /* Annotator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotator.swift; sourceTree = "<group>"; };
+		682ED14C1F0B77240075F0DB /* Geocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		682ED14D1F0B77240075F0DB /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		682ED14E1F0B77240075F0DB /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
+		682ED14F1F0B77240075F0DB /* RegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
+		682ED1511F0B77240075F0DB /* mapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapController.swift; sourceTree = "<group>"; };
+		682ED1521F0B77240075F0DB /* navController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navController.swift; sourceTree = "<group>"; };
+		682ED1531F0B77240075F0DB /* optionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = optionsController.swift; sourceTree = "<group>"; };
+		682ED15C1F0B774C0075F0DB /* Geocoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geocoders.h; sourceTree = "<group>"; };
+		682ED15D1F0B774C0075F0DB /* Geocoders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geocoders.m; sourceTree = "<group>"; };
+		682ED15F1F0B786A0075F0DB /* Automatron.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Automatron.swift; sourceTree = "<group>"; };
 		6858E04F1F093364008FDFD7 /* maplysis-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "maplysis-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858E0521F093364008FDFD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6858E0571F093364008FDFD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -30,17 +42,7 @@
 		6858E05C1F093364008FDFD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6858E05E1F093364008FDFD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6858E0651F0933A9008FDFD7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		6858E0671F0939B3008FDFD7 /* navController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navController.swift; sourceTree = "<group>"; };
-		6858E0691F0939CF008FDFD7 /* mapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapController.swift; sourceTree = "<group>"; };
-		6858E06B1F0939EA008FDFD7 /* optionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = optionsController.swift; sourceTree = "<group>"; };
-		6858E06D1F093C1A008FDFD7 /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
-		6858E06F1F093C35008FDFD7 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
-		68CCABD51F0A11AB00DC21B0 /* Annotator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotator.swift; sourceTree = "<group>"; };
-		68CCABD71F0A11CF00DC21B0 /* RegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
-		68CCABD91F0A1AFB00DC21B0 /* Geocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		68CCABDB1F0A9AF500DC21B0 /* maplysis-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "maplysis-swift-Bridging-Header.h"; sourceTree = "<group>"; };
-		68CCABDC1F0A9AF600DC21B0 /* Geocoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Geocoders.h; path = ../../maplysis/maplysis/Navigator/Geocoders.h; sourceTree = "<group>"; };
-		68CCABDD1F0A9AF600DC21B0 /* Geocoders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Geocoders.m; path = ../../maplysis/maplysis/Navigator/Geocoders.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		682ED14A1F0B77240075F0DB /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				682ED14E1F0B77240075F0DB /* LocationInfo.swift */,
+				682ED14D1F0B77240075F0DB /* LocationController.swift */,
+				682ED14B1F0B77240075F0DB /* Annotator.swift */,
+				682ED14F1F0B77240075F0DB /* RegionManager.swift */,
+				682ED14C1F0B77240075F0DB /* Geocoder.swift */,
+				682ED15C1F0B774C0075F0DB /* Geocoders.h */,
+				682ED15D1F0B774C0075F0DB /* Geocoders.m */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		682ED1501F0B77240075F0DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				682ED1511F0B77240075F0DB /* mapController.swift */,
+				682ED1521F0B77240075F0DB /* navController.swift */,
+				682ED1531F0B77240075F0DB /* optionsController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6858E0461F093364008FDFD7 = {
 			isa = PBXGroup;
 			children = (
@@ -75,17 +101,10 @@
 		6858E0511F093364008FDFD7 /* maplysis-swift */ = {
 			isa = PBXGroup;
 			children = (
+				682ED15F1F0B786A0075F0DB /* Automatron.swift */,
 				6858E0521F093364008FDFD7 /* AppDelegate.swift */,
-				6858E0671F0939B3008FDFD7 /* navController.swift */,
-				6858E0691F0939CF008FDFD7 /* mapController.swift */,
-				6858E06B1F0939EA008FDFD7 /* optionsController.swift */,
-				6858E06D1F093C1A008FDFD7 /* LocationInfo.swift */,
-				6858E06F1F093C35008FDFD7 /* LocationController.swift */,
-				68CCABD91F0A1AFB00DC21B0 /* Geocoder.swift */,
-				68CCABDC1F0A9AF600DC21B0 /* Geocoders.h */,
-				68CCABDD1F0A9AF600DC21B0 /* Geocoders.m */,
-				68CCABD51F0A11AB00DC21B0 /* Annotator.swift */,
-				68CCABD71F0A11CF00DC21B0 /* RegionManager.swift */,
+				682ED14A1F0B77240075F0DB /* Navigator */,
+				682ED1501F0B77240075F0DB /* Views */,
 				6858E0561F093364008FDFD7 /* Main.storyboard */,
 				6858E05B1F093364008FDFD7 /* LaunchScreen.storyboard */,
 				6858E0591F093364008FDFD7 /* Assets.xcassets */,
@@ -177,14 +196,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6858E0531F093364008FDFD7 /* AppDelegate.swift in Sources */,
-				68CCABD61F0A11AB00DC21B0 /* Annotator.swift in Sources */,
-				6858E0681F0939B3008FDFD7 /* navController.swift in Sources */,
-				68CCABDE1F0A9AF600DC21B0 /* Geocoders.m in Sources */,
-				6858E06C1F0939EA008FDFD7 /* optionsController.swift in Sources */,
-				6858E06E1F093C1A008FDFD7 /* LocationInfo.swift in Sources */,
-				68CCABD81F0A11CF00DC21B0 /* RegionManager.swift in Sources */,
-				6858E0701F093C35008FDFD7 /* LocationController.swift in Sources */,
-				6858E06A1F0939CF008FDFD7 /* mapController.swift in Sources */,
+				682ED1541F0B77240075F0DB /* Annotator.swift in Sources */,
+				682ED1561F0B77240075F0DB /* LocationController.swift in Sources */,
+				682ED15E1F0B774C0075F0DB /* Geocoders.m in Sources */,
+				682ED1581F0B77240075F0DB /* RegionManager.swift in Sources */,
+				682ED15A1F0B77240075F0DB /* navController.swift in Sources */,
+				682ED1591F0B77240075F0DB /* mapController.swift in Sources */,
+				682ED1601F0B786A0075F0DB /* Automatron.swift in Sources */,
+				682ED1571F0B77240075F0DB /* LocationInfo.swift in Sources */,
+				682ED15B1F0B77240075F0DB /* optionsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

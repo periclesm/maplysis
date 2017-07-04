@@ -18,8 +18,6 @@ class RegionManager: NSObject {
 		let _zoomLevel = UserDefaults.standard.double(forKey: "MapZoomLevel")
 		let region = MKCoordinateRegionMakeWithDistance(locationRegion.coordinate, _zoomLevel, _zoomLevel)
 		
-//		(sender as? MKMapView)?.setRegion(((sender as? MKMapView)?.regionThatFits(region))!, animated: true)
 		sender.setRegion(sender.regionThatFits(region), animated: true)
-		
 	}
 }
