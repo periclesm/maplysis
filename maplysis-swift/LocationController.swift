@@ -11,17 +11,11 @@
 import UIKit
 import CoreLocation
 
-//private let sharedInstance = LocationController()
-
 class LocationController: NSObject, CLLocationManagerDelegate {
 	static let sharedInstance = LocationController()
 	var locManager: CLLocationManager
 	var isUpdating: Bool
 	var senderVC: Any?
-	
-//	class var sharedInstance: LocationController {
-//		return self.sharedInstance
-//	}
 	
 	override init() {
 		locManager = CLLocationManager.init()
@@ -31,6 +25,8 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 		locManager.delegate = self
 		locManager.distanceFilter = kCLDistanceFilterNone
 		locManager.desiredAccuracy = kCLLocationAccuracyKilometer
+		
+		LocationPermissions()
 	}
 	
 	func GetCurrentLocation(sender: AnyObject?) {

@@ -12,17 +12,11 @@ import UIKit
 import CoreLocation
 import MapKit
 
-//private let sharedInstance = LocationInfo()
-
 class LocationInfo: NSObject {
 	
 	static let sharedInstance = LocationInfo()
 	var currentLocation: CLLocation?
 	var address: String?
-	
-//	class var sharedInstance: LocationInfo {
-//		return self.sharedInstance
-//	}
 	
 	func ConvertTouchesToLocation(touchPoint: CGPoint, sender: MKMapView) {
 		let touchCoordinate = sender.convert(touchPoint, toCoordinateFrom: sender)

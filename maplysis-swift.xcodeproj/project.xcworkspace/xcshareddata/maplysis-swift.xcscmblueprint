@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "40984CDD59C9E84DB2750F620232E97F369B86AB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "607A98692C52279FA3A4DF1BC28761863CC45B98" : 9223372036854775807,
+    "40984CDD59C9E84DB2750F620232E97F369B86AB" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5AA2FB4B-89E5-4929-A44D-49BB65D93FB0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "607A98692C52279FA3A4DF1BC28761863CC45B98" : "maplysis\/",
+    "40984CDD59C9E84DB2750F620232E97F369B86AB" : "maplysis-swift\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "maplysis-swift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "maplysis-swift.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/periclesm\/maplysis-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40984CDD59C9E84DB2750F620232E97F369B86AB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/periclesm\/maplysis.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "607A98692C52279FA3A4DF1BC28761863CC45B98"
+    }
+  ]
+}
