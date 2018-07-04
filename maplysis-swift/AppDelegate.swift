@@ -15,28 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
-		let defaults = UserDefaults.standard
-		
-		if defaults.object(forKey: "ContiniousLocation") == nil {
-			defaults.set(false, forKey: "ContiniousLocation")
-		}
-		
-		if defaults.object(forKey: "Geocoder") == nil {
-			defaults.set(0, forKey: "Geocoder")
-		}
-		
-		if defaults.object(forKey: "MapZoomLevel") == nil {
-			defaults.set(300, forKey: "MapZoomLevel")
-		}
-		
-		if defaults.object(forKey: "MapType") == nil {
-			defaults.set(0, forKey: "MapType")
-		}
-		
+		AppDefaults.setDefaults()
 		return true
 	}
-
 }
 

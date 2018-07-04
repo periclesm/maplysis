@@ -25,9 +25,12 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 		locManager.delegate = self
 		locManager.distanceFilter = kCLDistanceFilterNone
 		locManager.desiredAccuracy = kCLLocationAccuracyKilometer
+		locManager.allowsBackgroundLocationUpdates = false
 		
-		LocationPermissions()
+//		LocationPermissions()
 	}
+
+	//MARK: Get Location Commands
 	
 	func GetCurrentLocation(sender: AnyObject?) {
 		locManager.requestLocation()
@@ -47,7 +50,9 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 		senderVC = sender
 	}
 	
-	
+
+	//MARK: - Location management
+
 	func LocationPermissions(){
 		if CLLocationManager.locationServicesEnabled() {
 			let status = CLLocationManager.authorizationStatus()
@@ -62,7 +67,6 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 				
 			default:
 				LocationErrorWithDeviceServiceEnabled(enabled: true)
-				break
 			}
 		}
 		else {

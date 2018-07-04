@@ -7,34 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		681FB05B20EA92CA007B307B /* TestingLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 681FB05A20EA92C9007B307B /* TestingLocation.gpx */; };
 		682ED1541F0B77240075F0DB /* Annotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14B1F0B77240075F0DB /* Annotator.swift */; };
 		682ED1561F0B77240075F0DB /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14D1F0B77240075F0DB /* LocationController.swift */; };
 		682ED1571F0B77240075F0DB /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14E1F0B77240075F0DB /* LocationInfo.swift */; };
 		682ED1581F0B77240075F0DB /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14F1F0B77240075F0DB /* RegionManager.swift */; };
 		682ED1591F0B77240075F0DB /* mapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1511F0B77240075F0DB /* mapController.swift */; };
-		682ED15A1F0B77240075F0DB /* navController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1521F0B77240075F0DB /* navController.swift */; };
 		682ED15B1F0B77240075F0DB /* optionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1531F0B77240075F0DB /* optionsController.swift */; };
 		682ED15E1F0B774C0075F0DB /* Geocoders.m in Sources */ = {isa = PBXBuildFile; fileRef = 682ED15D1F0B774C0075F0DB /* Geocoders.m */; };
-		682ED1601F0B786A0075F0DB /* Automatron.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED15F1F0B786A0075F0DB /* Automatron.swift */; };
 		6858E0531F093364008FDFD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E0521F093364008FDFD7 /* AppDelegate.swift */; };
 		6858E0581F093364008FDFD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6858E0561F093364008FDFD7 /* Main.storyboard */; };
 		6858E05A1F093364008FDFD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6858E0591F093364008FDFD7 /* Assets.xcassets */; };
 		6858E05D1F093364008FDFD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6858E05B1F093364008FDFD7 /* LaunchScreen.storyboard */; };
 		6858E0661F0933A9008FDFD7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858E0651F0933A9008FDFD7 /* MapKit.framework */; };
+		68F597EE20EA4069001D08F8 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F597ED20EA4069001D08F8 /* AppDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		681FB05A20EA92C9007B307B /* TestingLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestingLocation.gpx; sourceTree = "<group>"; };
 		682ED14B1F0B77240075F0DB /* Annotator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotator.swift; sourceTree = "<group>"; };
 		682ED14C1F0B77240075F0DB /* Geocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		682ED14D1F0B77240075F0DB /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		682ED14E1F0B77240075F0DB /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
 		682ED14F1F0B77240075F0DB /* RegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
 		682ED1511F0B77240075F0DB /* mapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapController.swift; sourceTree = "<group>"; };
-		682ED1521F0B77240075F0DB /* navController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navController.swift; sourceTree = "<group>"; };
 		682ED1531F0B77240075F0DB /* optionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = optionsController.swift; sourceTree = "<group>"; };
 		682ED15C1F0B774C0075F0DB /* Geocoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geocoders.h; sourceTree = "<group>"; };
 		682ED15D1F0B774C0075F0DB /* Geocoders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geocoders.m; sourceTree = "<group>"; };
-		682ED15F1F0B786A0075F0DB /* Automatron.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Automatron.swift; sourceTree = "<group>"; };
 		6858E04F1F093364008FDFD7 /* maplysis-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "maplysis-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6858E0521F093364008FDFD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6858E0571F093364008FDFD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		6858E05E1F093364008FDFD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6858E0651F0933A9008FDFD7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		68CCABDB1F0A9AF500DC21B0 /* maplysis-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "maplysis-swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		68F597ED20EA4069001D08F8 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,16 +57,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		682ED14A1F0B77240075F0DB /* Navigator */ = {
+		681FB05C20EA9316007B307B /* Location */ = {
 			isa = PBXGroup;
 			children = (
 				682ED14E1F0B77240075F0DB /* LocationInfo.swift */,
 				682ED14D1F0B77240075F0DB /* LocationController.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		681FB05D20EA9322007B307B /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
 				682ED14B1F0B77240075F0DB /* Annotator.swift */,
 				682ED14F1F0B77240075F0DB /* RegionManager.swift */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
+		681FB05E20EA9329007B307B /* Geocoder */ = {
+			isa = PBXGroup;
+			children = (
 				682ED14C1F0B77240075F0DB /* Geocoder.swift */,
 				682ED15C1F0B774C0075F0DB /* Geocoders.h */,
 				682ED15D1F0B774C0075F0DB /* Geocoders.m */,
+			);
+			path = Geocoder;
+			sourceTree = "<group>";
+		};
+		682ED14A1F0B77240075F0DB /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				681FB05D20EA9322007B307B /* Annotation */,
+				681FB05E20EA9329007B307B /* Geocoder */,
+				681FB05C20EA9316007B307B /* Location */,
 			);
 			path = Navigator;
 			sourceTree = "<group>";
@@ -75,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				682ED1511F0B77240075F0DB /* mapController.swift */,
-				682ED1521F0B77240075F0DB /* navController.swift */,
 				682ED1531F0B77240075F0DB /* optionsController.swift */,
 			);
 			path = Views;
@@ -101,14 +124,15 @@
 		6858E0511F093364008FDFD7 /* maplysis-swift */ = {
 			isa = PBXGroup;
 			children = (
-				682ED15F1F0B786A0075F0DB /* Automatron.swift */,
 				6858E0521F093364008FDFD7 /* AppDelegate.swift */,
+				68F597ED20EA4069001D08F8 /* AppDefaults.swift */,
 				682ED14A1F0B77240075F0DB /* Navigator */,
 				682ED1501F0B77240075F0DB /* Views */,
 				6858E0561F093364008FDFD7 /* Main.storyboard */,
 				6858E05B1F093364008FDFD7 /* LaunchScreen.storyboard */,
 				6858E0591F093364008FDFD7 /* Assets.xcassets */,
 				6858E05E1F093364008FDFD7 /* Info.plist */,
+				681FB05A20EA92C9007B307B /* TestingLocation.gpx */,
 				68CCABDB1F0A9AF500DC21B0 /* maplysis-swift-Bridging-Header.h */,
 			);
 			path = "maplysis-swift";
@@ -149,12 +173,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = cloudfields;
 				TargetAttributes = {
 					6858E04E1F093364008FDFD7 = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -185,6 +209,7 @@
 				6858E05D1F093364008FDFD7 /* LaunchScreen.storyboard in Resources */,
 				6858E05A1F093364008FDFD7 /* Assets.xcassets in Resources */,
 				6858E0581F093364008FDFD7 /* Main.storyboard in Resources */,
+				681FB05B20EA92CA007B307B /* TestingLocation.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,13 +221,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6858E0531F093364008FDFD7 /* AppDelegate.swift in Sources */,
+				68F597EE20EA4069001D08F8 /* AppDefaults.swift in Sources */,
 				682ED1541F0B77240075F0DB /* Annotator.swift in Sources */,
 				682ED1561F0B77240075F0DB /* LocationController.swift in Sources */,
 				682ED15E1F0B774C0075F0DB /* Geocoders.m in Sources */,
 				682ED1581F0B77240075F0DB /* RegionManager.swift in Sources */,
-				682ED15A1F0B77240075F0DB /* navController.swift in Sources */,
 				682ED1591F0B77240075F0DB /* mapController.swift in Sources */,
-				682ED1601F0B786A0075F0DB /* Automatron.swift in Sources */,
 				682ED1571F0B77240075F0DB /* LocationInfo.swift in Sources */,
 				682ED15B1F0B77240075F0DB /* optionsController.swift in Sources */,
 			);
@@ -240,15 +264,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -271,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -291,15 +323,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -316,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -333,14 +373,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AFNBPBD3C5;
 				INFOPLIST_FILE = "maplysis-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloudfields.maplysis-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "maplysis-swift/maplysis-swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -353,13 +393,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AFNBPBD3C5;
 				INFOPLIST_FILE = "maplysis-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloudfields.maplysis-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "maplysis-swift/maplysis-swift-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

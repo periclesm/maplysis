@@ -12,7 +12,7 @@
 
 @implementation Geocoders
 
-#pragma mark -- Reverse Geocoding
+#pragma mark - Apple Geocoding
 
 + (void)AppleReverseGeocoderWithLocationCoordinates:(CLLocation*)location completion:(void (^)(NSString *fAddress))completion
 {
@@ -36,6 +36,22 @@
 	}];
 }
 
++ (void)AppleGeocoderWithAddress:(NSString*)address completion:(void (^)(CLLocation *clocation))completion
+{
+	[[CLGeocoder new] geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+
+		if (placemarks.count > 0)
+		{
+			CLPlacemark *mark = (CLPlacemark*)[placemarks firstObject];
+			completion (mark.location);
+		}
+		else
+			completion(nil);
+	}];
+}
+
+#pragma mark - Google Geocoding
+
 /*!
  * I am doing the simplest Reverse geocoding here.
  * For more complex and analytical Geocoding, check the Google documentation
@@ -50,22 +66,22 @@
 {
 	dispatch_queue_t googleRevGeo = dispatch_queue_create("GoogleReverseGeocoder",NULL);
 	dispatch_async (googleRevGeo, ^(void) {
-		
+
 		NSString *lat = [@(location.coordinate.latitude) stringValue];
 		NSString *lon = [@(location.coordinate.longitude) stringValue];
-		
+
 		NSString *requestURL = [[NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@", lat, lon]
 								stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-		
+
 		NSData *responseData = [NSData dataWithContentsOfURL:[NSURL URLWithString:requestURL]];
-		
+
 		dispatch_async(dispatch_get_main_queue(), ^{
-			
+
 			if (responseData.length > 0)
 			{
 				NSError *err;
 				NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&err];
-				
+
 				if ([[responseDict[@"status"] lowercaseString] isEqualToString:@"ok"])
 				{
 					NSString *grgAddress = [responseDict[@"results"] firstObject][@"formatted_address"];
@@ -76,22 +92,6 @@
 			else completion(nil);
 		});
 	});
-}
-
-#pragma mark -- Geocoding
-
-+ (void)AppleGeocoderWithAddress:(NSString*)address completion:(void (^)(CLLocation *clocation))completion
-{
-	[[CLGeocoder new] geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
-		
-		if (placemarks.count > 0)
-		{
-			CLPlacemark *mark = (CLPlacemark*)[placemarks firstObject];
-			completion (mark.location);
-		}
-		else
-			completion(nil);
-	}];
 }
 
 /*!

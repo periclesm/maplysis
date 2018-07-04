@@ -17,47 +17,46 @@ class mapController: UIViewController {
 	@IBOutlet var mapView: MKMapView!
 	@IBOutlet var longPress: UIGestureRecognizer!
 	
-	let linfo = LocationInfo.sharedInstance
+	let li = LocationInfo.sharedInstance
 	let lc = LocationController.sharedInstance
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-		NotificationCenter.default.addObserver(self, selector: #selector(UpdateMap), name: Notification.Name("UpdateLocation"), object: nil)
-		locationButton?.layer.cornerRadius = (locationButton?.bounds.size.width)! / 2
+		NotificationCenter.default.addObserver(self, selector: #selector(self.DisplayLocation), name: Notification.Name("UpdateLocation"), object: nil)
+		super.viewDidLoad()
+
+		locationButton.layer.cornerRadius = locationButton.bounds.size.width / 2
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-		let _mapType: Int = UserDefaults.standard.integer(forKey: "MapType")
-		
-		switch _mapType {
-		case 0:
-			mapView?.mapType = .standard
-			
-		case 1:
-			mapView?.mapType = .satellite
-			
-		case 2:
-			mapView?.mapType = .hybrid
-			
-		default: mapView?.mapType = .standard
-		}
-		
+		self.setmapType(type: UserDefaults.standard.integer(forKey: "MapType"))
+		lc.GetCurrentLocation(sender: self)
 		super.viewWillAppear(true)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		lc.StopLocationUpdates(sender: self)
-		locationButton?.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
 		super.viewWillDisappear(true)
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+	func setmapType(type: Int) {
+		switch type {
+		case 1:
+			mapView.mapType = .satellite
+
+		case 2:
+			mapView.mapType = .hybrid
+
+		case 0:
+			fallthrough
+
+		default:
+			mapView.mapType = .standard
+		}
+	}
 	
-//MARK: IBActions
+	//MARK: - IBActions
 	
-	@IBAction func GetLocation(_ sender: Any) {
+	@IBAction func GetCurrentLocation(_ sender: Any) {
 		let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
 		
 		if !_cLocationUpdates {
@@ -75,27 +74,25 @@ class mapController: UIViewController {
 		}
 	}
 	
-	@IBAction func SetPointAtTouch(_ sender: Any) {
+	@IBAction func GetLocationAtTouchPoint(_ sender: Any) {
 		mapView?.removeAnnotations((mapView?.annotations)!)
 		let touchPoint = longPress?.location(in: mapView)
-		linfo.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
+		li.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
 		
-		Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: true, sender: mapView!)
+		Annotator.DisplayAnnotation(li.currentLocation!, userSelected: true, sender: mapView!)
 	}
-	
-	func UpdateMap() {
-		
-	}
-	
-	func DisplayLocation() {
+
+	//MARK: - Location Display
+
+	@objc func DisplayLocation() {
 		mapView?.removeAnnotations((mapView?.annotations)!)
 		
-		RegionManager.DisplayRegion(locationRegion: linfo.currentLocation!, sender: mapView!)
+		RegionManager.DisplayRegion(locationRegion: li.currentLocation!, sender: mapView!)
 		
 		let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
 		
 		if !_cLocationUpdates {
-			Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: false, sender: mapView!)
+			Annotator.DisplayAnnotation(li.currentLocation!, userSelected: false, sender: mapView!)
 		}
 	}
 }
