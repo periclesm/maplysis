@@ -17,19 +17,23 @@ class mapController: UIViewController {
 	@IBOutlet var mapView: MKMapView!
 	@IBOutlet var longPress: UIGestureRecognizer!
 	
-	let li = LocationInfo.sharedInstance
-	let lc = LocationController.sharedInstance
+	var li: LocationInfo!
+	var lc: LocationController!
 
     override func viewDidLoad() {
 		NotificationCenter.default.addObserver(self, selector: #selector(self.DisplayLocation), name: Notification.Name("UpdateLocation"), object: nil)
 		super.viewDidLoad()
+
+		li = LocationInfo.sharedInstance
+		lc = LocationController.sharedInstance
+		lc.senderVC = self
+		lc.LocationPermissions()
 
 		locationButton.layer.cornerRadius = locationButton.bounds.size.width / 2
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		self.setmapType(type: UserDefaults.standard.integer(forKey: "MapType"))
-		lc.GetCurrentLocation(sender: self)
 		super.viewWillAppear(true)
 	}
 	
