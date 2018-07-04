@@ -8,8 +8,6 @@
 //	https://creativecommons.org/licenses/by-sa/4.0/
 //
 
-import UIKit
-import CoreLocation
 import MapKit
 
 class RegionManager: NSObject {

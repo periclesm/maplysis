@@ -8,8 +8,6 @@
 //	https://creativecommons.org/licenses/by-sa/4.0/
 //
 
-import UIKit
-import CoreLocation
 import MapKit
 
 enum GeocoderService: Int {
@@ -27,7 +25,7 @@ class Annotator: NSObject {
 			locAnnotation.title = "Current Location";
 		}
 		else {
-			locAnnotation.title = "User Selected Location";
+			locAnnotation.title = "Selected Location";
 		}
 		
 		let gc = UserDefaults.standard.integer(forKey: "Geocoder")

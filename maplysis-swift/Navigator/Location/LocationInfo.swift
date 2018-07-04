@@ -9,7 +9,6 @@
 //
 
 import UIKit
-import CoreLocation
 import MapKit
 
 class LocationInfo: NSObject {
@@ -20,7 +19,11 @@ class LocationInfo: NSObject {
 	
 	func ConvertTouchesToLocation(touchPoint: CGPoint, sender: MKMapView) {
 		let touchCoordinate = sender.convert(touchPoint, toCoordinateFrom: sender)
-		currentLocation = CLLocation.init(latitude:touchCoordinate.latitude, longitude:touchCoordinate.longitude)
+		currentLocation = CLLocation(latitude:touchCoordinate.latitude, longitude:touchCoordinate.longitude)
 	}
 
+	func resetLocation() {
+		currentLocation = nil
+		address = nil
+	}
 }

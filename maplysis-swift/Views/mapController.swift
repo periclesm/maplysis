@@ -79,7 +79,8 @@ class mapController: UIViewController {
 	}
 	
 	@IBAction func GetLocationAtTouchPoint(_ sender: Any) {
-		mapView?.removeAnnotations((mapView?.annotations)!)
+		mapView.removeAnnotations((mapView?.annotations)!)
+		
 		let touchPoint = longPress?.location(in: mapView)
 		li.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
 		
@@ -89,7 +90,7 @@ class mapController: UIViewController {
 	//MARK: - Location Display
 
 	@objc func DisplayLocation() {
-		mapView?.removeAnnotations((mapView?.annotations)!)
+		mapView.removeAnnotations((mapView?.annotations)!)
 		
 		RegionManager.DisplayRegion(locationRegion: li.currentLocation!, sender: mapView!)
 		

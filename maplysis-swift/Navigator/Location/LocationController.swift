@@ -12,6 +12,7 @@ import UIKit
 import CoreLocation
 
 class LocationController: NSObject, CLLocationManagerDelegate {
+
 	static let sharedInstance = LocationController()
 	var locManager: CLLocationManager
 	var isUpdating: Bool
@@ -100,7 +101,10 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		print("location: \(String(describing: locations.last))");
 
-		LocationInfo.sharedInstance.currentLocation = locations.last
+		let linfo = LocationInfo.sharedInstance
+		linfo.resetLocation()
+		linfo.currentLocation = locations.last
+		
 		NotificationCenter.default.post(name: NSNotification.Name("UpdateLocation"), object: nil, userInfo: nil)
 	}
 
