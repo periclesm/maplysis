@@ -10,6 +10,12 @@
 
 import UIKit
 
+enum MapTypeEnum: Int {
+	case map = 0
+	case satellite = 1
+	case hybrid = 2
+}
+
 class optionsController: UITableViewController {
 	
 	@IBOutlet var contLocSwitch: UISwitch!
@@ -19,54 +25,36 @@ class optionsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.tableView.tableFooterView = UIView.init(frame: CGRect.zero)
 		
-		contLocSwitch?.isOn = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-		mZoomProgress?.value = UserDefaults.standard.float(forKey: "MapZoomLevel")
-		mapTypeSegm?.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "MapType")
-		geocoderSegm?.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "Geocoder")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+		contLocSwitch.isOn = UserDefaults.standard.bool(forKey: "ContiniousLocation")
+		mZoomProgress.value = UserDefaults.standard.float(forKey: "MapZoomLevel")
+		mapTypeSegm.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "MapType")
+		geocoderSegm.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "Geocoder")
     }
 	
 	//MARK: - IBActions
 	
-	@IBAction func CloseAction(_ sender: Any) {
+	@IBAction func CloseAction() {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
-	@IBAction func SetContiniousUpdating(_ sender: Any) {
-		UserDefaults.standard.set(contLocSwitch?.isOn, forKey: "ContiniousLocation")
+	@IBAction func SetContiniousUpdating() {
+		UserDefaults.standard.set(contLocSwitch.isOn, forKey: "ContiniousLocation")
 		UserDefaults.standard.synchronize()
 	}
 	
-	@IBAction func SetMapZoomLevel(_ sender: Any) {
-		UserDefaults.standard.set(mZoomProgress?.value, forKey: "MapZoomLevel")
+	@IBAction func SetMapZoomLevel() {
+		UserDefaults.standard.set(mZoomProgress.value, forKey: "MapZoomLevel")
 		UserDefaults.standard.synchronize()
 	}
 	
-	@IBAction func SetMapType(_ sender: Any) {
-		UserDefaults.standard.set(mapTypeSegm?.selectedSegmentIndex, forKey: "MapType")
+	@IBAction func SetMapType() {
+		UserDefaults.standard.set(mapTypeSegm.selectedSegmentIndex, forKey: "MapType")
 		UserDefaults.standard.synchronize()
 	}
 	
-	@IBAction func SetGeocoder(_ sender: Any) {
-		UserDefaults.standard.set(geocoderSegm?.selectedSegmentIndex, forKey: "Geocoder")
+	@IBAction func SetGeocoder() {
+		UserDefaults.standard.set(geocoderSegm.selectedSegmentIndex, forKey: "Geocoder")
 		UserDefaults.standard.synchronize()
 	}
-	
-
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
 }
