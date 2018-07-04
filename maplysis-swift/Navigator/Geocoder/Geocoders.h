@@ -22,8 +22,3 @@
 + (void)GoogleGeocoderWithAddress:(NSString*)address completion:(void (^)(CLLocation *clocation))completion;
 
 @end
-
-typedef NS_ENUM(NSUInteger, Geocoder) {
-	GeocoderApple = 0,
-	GeocoderGoogle
-};

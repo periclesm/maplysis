@@ -33,7 +33,7 @@ class mapController: UIViewController {
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-		self.setmapType(type: UserDefaults.standard.integer(forKey: "MapType"))
+		self.setmapType(type: MapTypeEnum(rawValue: UserDefaults.standard.integer(forKey: "MapType"))!)
 		super.viewWillAppear(true)
 	}
 	
@@ -42,15 +42,15 @@ class mapController: UIViewController {
 		super.viewWillDisappear(true)
 	}
 
-	func setmapType(type: Int) {
+	func setmapType(type: MapTypeEnum) {
 		switch type {
-		case 1:
+		case .satellite:
 			mapView.mapType = .satellite
 
-		case 2:
+		case .hybrid:
 			mapView.mapType = .hybrid
 
-		case 0:
+		case .map:
 			fallthrough
 
 		default:

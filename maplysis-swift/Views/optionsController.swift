@@ -12,8 +12,8 @@ import UIKit
 
 enum MapTypeEnum: Int {
 	case map = 0
-	case satellite = 1
-	case hybrid = 2
+	case satellite
+	case hybrid
 }
 
 class optionsController: UITableViewController {
