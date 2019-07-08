@@ -14,18 +14,14 @@
 
 #pragma mark - Apple Geocoding
 
-+ (void)AppleReverseGeocoderWithLocationCoordinates:(CLLocation*)location completion:(void (^)(NSString *fAddress))completion
-{
++ (void)AppleReverseGeocoderWithLocationCoordinates:(CLLocation*)location completion:(void (^)(NSString *fAddress))completion {
 	[[CLGeocoder new] reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
 		
-		if (placemarks.count > 0)
-		{
+		if (placemarks.count > 0) {
 			CLPlacemark *mark = (CLPlacemark*)[placemarks firstObject];
-			
 			NSMutableString *addressString = [NSMutableString string];
-			
-			for (NSString *detail in mark.addressDictionary[@"FormattedAddressLines"])
-			{
+
+			for (NSString *detail in mark.addressDictionary[@"FormattedAddressLines"]) {
 				[addressString appendString:[NSString stringWithFormat:@"%@ ", detail]];
 			}
 			
@@ -36,12 +32,9 @@
 	}];
 }
 
-+ (void)AppleGeocoderWithAddress:(NSString*)address completion:(void (^)(CLLocation *clocation))completion
-{
++ (void)AppleGeocoderWithAddress:(NSString*)address completion:(void (^)(CLLocation *clocation))completion {
 	[[CLGeocoder new] geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
-
-		if (placemarks.count > 0)
-		{
+		if (placemarks.count > 0){
 			CLPlacemark *mark = (CLPlacemark*)[placemarks firstObject];
 			completion (mark.location);
 		}
@@ -62,8 +55,7 @@
  * Also, let's GCD here :)
  */
 
-+ (void)GoogleReverseGeocoderWithLocationCoordinates:(CLLocation*)location completion:(void (^)(NSString *fAddress))completion
-{
++ (void)GoogleReverseGeocoderWithLocationCoordinates:(CLLocation*)location completion:(void (^)(NSString *fAddress))completion {
 	dispatch_queue_t googleRevGeo = dispatch_queue_create("GoogleReverseGeocoder",NULL);
 	dispatch_async (googleRevGeo, ^(void) {
 
@@ -102,8 +94,7 @@
  * GCD again
  */
 
-+ (void)GoogleGeocoderWithAddress:(NSString*)address completion:(void (^)(CLLocation *clocation))completion
-{
++ (void)GoogleGeocoderWithAddress:(NSString*)address completion:(void (^)(CLLocation *clocation))completion {
 	dispatch_queue_t googleGeo = dispatch_queue_create("GoogleGeocoder",NULL);
 	dispatch_async (googleGeo, ^(void) {
 		
@@ -114,13 +105,11 @@
 		
 		dispatch_async(dispatch_get_main_queue(), ^{
 			
-			if (responseData.length > 0)
-			{
+			if (responseData.length > 0) {
 				NSError *err;
 				NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&err];
 				
-				if ([[responseDict[@"status"] lowercaseString] isEqualToString:@"ok"])
-				{
+				if ([[responseDict[@"status"] lowercaseString] isEqualToString:@"ok"]) {
 					NSDictionary *geometry = [responseDict[@"results"] firstObject][@"geometry"][@"location"];
 					double latitude = [geometry[@"lat"] doubleValue];
 					double longtitude = [geometry[@"lng"] doubleValue];

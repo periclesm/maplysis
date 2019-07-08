@@ -74,6 +74,8 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 
 		case .denied:
 			LocationErrorWithDeviceService(enabled: CLLocationManager.locationServicesEnabled())
+            
+        default: break
 		}
 	}
 

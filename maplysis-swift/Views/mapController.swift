@@ -17,14 +17,14 @@ class mapController: UIViewController {
 	@IBOutlet var mapView: MKMapView!
 	@IBOutlet var longPress: UIGestureRecognizer!
 	
-	var li: LocationInfo!
+	var linfo: LocationInfo!
 	var lc: LocationController!
 
     override func viewDidLoad() {
 		NotificationCenter.default.addObserver(self, selector: #selector(self.DisplayLocation), name: Notification.Name("UpdateLocation"), object: nil)
 		super.viewDidLoad()
 
-		li = LocationInfo.sharedInstance
+		linfo = LocationInfo.sharedInstance
 		lc = LocationController.sharedInstance
 		lc.senderVC = self
 		lc.LocationPermissions()
@@ -82,9 +82,9 @@ class mapController: UIViewController {
 		mapView.removeAnnotations((mapView?.annotations)!)
 		
 		let touchPoint = longPress?.location(in: mapView)
-		li.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
+		linfo.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
 		
-		Annotator.DisplayAnnotation(li.currentLocation!, userSelected: true, sender: mapView!)
+		Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: true, sender: mapView!)
 	}
 
 	//MARK: - Location Display
@@ -92,12 +92,12 @@ class mapController: UIViewController {
 	@objc func DisplayLocation() {
 		mapView.removeAnnotations((mapView?.annotations)!)
 		
-		RegionManager.DisplayRegion(locationRegion: li.currentLocation!, sender: mapView!)
+		RegionManager.DisplayRegion(locationRegion: linfo.currentLocation!, sender: mapView!)
 		
 		let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
 		
 		if !_cLocationUpdates {
-			Annotator.DisplayAnnotation(li.currentLocation!, userSelected: false, sender: mapView!)
+			Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: false, sender: mapView!)
 		}
 	}
 }
