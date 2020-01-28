@@ -3,7 +3,8 @@
 //  maplysis-swift
 //
 //  Created by Pericles Maravelakis on 28/1/20.
-//  Copyright © 2020 cloudfields. All rights reserved.
+//  Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
+//  https://creativecommons.org/licenses/by/4.0/
 //
 
 import UIKit

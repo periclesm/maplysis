@@ -4,8 +4,8 @@
 //
 //  Created by Pericles Maravelakis on 03/07/2017.
 //	periclesm@cloudfields.net
-//	Licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
-//	https://creativecommons.org/licenses/by-sa/4.0/
+//  Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
+//  https://creativecommons.org/licenses/by/4.0/
 //
 
 import MapKit
