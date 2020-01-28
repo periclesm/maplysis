@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kja-7M-o3Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kja-7M-o3Y">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +43,7 @@
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE2-Gd-Nvi">
                                 <rect key="frame" x="157.66666666666666" y="694" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="0.80233304790000004" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DE2-Gd-Nvi" secondAttribute="height" multiplier="1:1" id="0BA-v9-ajx"/>
                                     <constraint firstAttribute="width" constant="60" id="e19-Hi-lJV"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PDp-73-eRW" firstAttribute="top" secondItem="DH4-FW-wbU" secondAttribute="top" id="3Sc-hA-SXj"/>
                             <constraint firstItem="krc-TJ-1LD" firstAttribute="bottom" secondItem="DE2-Gd-Nvi" secondAttribute="bottom" constant="24" id="Nor-Gn-Rjo"/>
@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" id="Xag-V6-aCm">
                         <barButtonItem key="leftBarButtonItem" id="HAY-oX-KIw">
                             <view key="customView" contentMode="scaleToFill" id="hdp-ER-7t1">
-                                <rect key="frame" x="0.0" y="0.0" width="83" height="33"/>
+                                <rect key="frame" x="16" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maplysis" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayi-0V-kRw">
@@ -155,10 +155,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Map" id="jYZ-jS-R0p">
+                            <tableViewSection headerTitle="Map" footerTitle="Map options in setting a max zoom level and selecting the map display type." id="jYZ-jS-R0p">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="wiv-xR-RsO">
-                                        <rect key="frame" x="0.0" y="221.33333206176758" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="228.66666412353516" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wiv-xR-RsO" id="di4-9S-vUE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -206,7 +206,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Gys-1u-FDU">
-                                        <rect key="frame" x="0.0" y="301.33333206176758" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="308.66666412353516" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gys-1u-FDU" id="igT-qT-psc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -247,9 +247,10 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Geocoding" id="sW1-K9-iOi">
+                                <string key="footerTitle">Resolving location coordinates from address (geocoding) or the address from coordinates (reverse geocoding) using a specific service.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="dHN-Yf-ku8">
-                                        <rect key="frame" x="0.0" y="437.33333206176758" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="479.99999618530273" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dHN-Yf-ku8" id="Vob-Fx-2FY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -293,7 +294,7 @@
                     <navigationItem key="navigationItem" id="2xW-8H-rct">
                         <barButtonItem key="leftBarButtonItem" id="8Sx-fH-NMC">
                             <view key="customView" contentMode="scaleToFill" id="OMZ-U5-9Qn">
-                                <rect key="frame" x="0.0" y="0.0" width="83" height="33"/>
+                                <rect key="frame" x="16" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDm-AV-H3s">
@@ -350,4 +351,5 @@
         <image name="location" width="100" height="100"/>
         <image name="options" width="30" height="30"/>
     </resources>
+    <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
