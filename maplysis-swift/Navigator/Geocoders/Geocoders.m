@@ -62,7 +62,7 @@
 		NSString *lat = [@(location.coordinate.latitude) stringValue];
 		NSString *lon = [@(location.coordinate.longitude) stringValue];
 
-		NSString *requestURL = [[NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@", lat, lon]
+		NSString *requestURL = [[NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&key=<your-api-key>", lat, lon]
 								stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 
 		NSData *responseData = [NSData dataWithContentsOfURL:[NSURL URLWithString:requestURL]];
@@ -98,7 +98,7 @@
 	dispatch_queue_t googleGeo = dispatch_queue_create("GoogleGeocoder",NULL);
 	dispatch_async (googleGeo, ^(void) {
 		
-		NSString *requestURL = [[NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/geocode/json?address=%@", address]
+		NSString *requestURL = [[NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/geocode/json?address=%@&key=<your-api-key>", address]
 								stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 		
 		NSData *responseData = [NSData dataWithContentsOfURL:[NSURL URLWithString:requestURL]];

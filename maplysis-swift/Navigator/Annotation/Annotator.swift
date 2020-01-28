@@ -34,27 +34,49 @@ class Annotator: NSObject {
 			switch service {
 			case GeocoderService.Apple:
 				print("Apple Geocoder")
-				Geocoders.appleReverseGeocoder(withLocationCoordinates: locationCoord, completion: { (fAddress: String?) in
-					locAnnotation.subtitle = fAddress
-					sender.addAnnotation(locAnnotation)
-					
-					let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-					if !_cLocationUpdates {
-						sender.selectAnnotation(locAnnotation, animated: true)
-					}
-				})
+                
+                AppleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
+                    locAnnotation.subtitle = addressInfo?.formattedAddress
+                    sender.addAnnotation(locAnnotation)
+                    
+                    let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
+                    if !_cLocationUpdates {
+                        sender.selectAnnotation(locAnnotation, animated: true)
+                    }
+                }
+                
+//				Geocoders.appleReverseGeocoder(withLocationCoordinates: locationCoord, completion: { (fAddress: String?) in
+//					locAnnotation.subtitle = fAddress
+//					sender.addAnnotation(locAnnotation)
+//					
+//					let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
+//					if !_cLocationUpdates {
+//						sender.selectAnnotation(locAnnotation, animated: true)
+//					}
+//				})
 				
 			case GeocoderService.Google:
 				print("Google Geocoder")
-				Geocoders.googleReverseGeocoder(withLocationCoordinates: locationCoord, completion: { (fAddress: String?) in
-					locAnnotation.subtitle = fAddress
-					sender.addAnnotation(locAnnotation)
-					
-					let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-					if !_cLocationUpdates {
-						sender.selectAnnotation(locAnnotation, animated: true)
-					}
-				})
+                
+                GoogleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
+                    locAnnotation.subtitle = addressInfo
+                    sender.addAnnotation(locAnnotation)
+                    
+                    let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
+                    if !_cLocationUpdates {
+                        sender.selectAnnotation(locAnnotation, animated: true)
+                    }
+                }
+                
+//				Geocoders.googleReverseGeocoder(withLocationCoordinates: locationCoord, completion: { (fAddress: String?) in
+//					locAnnotation.subtitle = fAddress
+//					sender.addAnnotation(locAnnotation)
+//
+//					let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
+//					if !_cLocationUpdates {
+//						sender.selectAnnotation(locAnnotation, animated: true)
+//					}
+//				})
 			}
 		}
 		else {
