@@ -78,13 +78,15 @@ class mapController: UIViewController {
 		}
 	}
 	
-	@IBAction func GetLocationAtTouchPoint(_ sender: Any) {
-		mapView.removeAnnotations((mapView?.annotations)!)
-		
-		let touchPoint = longPress?.location(in: mapView)
-		linfo.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
-		
-		Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: true, sender: mapView!)
+	@IBAction func GetLocationAtTouchPoint(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.state == .ended {
+            mapView.removeAnnotations((mapView?.annotations)!)
+            
+            let touchPoint = longPress?.location(in: mapView)
+            linfo.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
+            
+            Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: true, sender: mapView!)
+        }
 	}
 
 	//MARK: - Location Display
