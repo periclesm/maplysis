@@ -101,9 +101,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duf-KW-1FJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="fmt-Ld-4Zu" userLabel="GetLocationAtTouchPoint">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fmt-Ld-4Zu" userLabel="GetLocationAtTouchPoint">
                     <connections>
-                        <action selector="GetLocationAtTouchPoint:" destination="NMV-zz-eXE" id="iHX-07-j2S"/>
+                        <action selector="GetLocationAtTouchPoint:" destination="NMV-zz-eXE" id="cF0-nS-cvl"/>
+                        <outlet property="delegate" destination="NMV-zz-eXE" id="tWU-SS-uWp"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>

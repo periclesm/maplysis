@@ -11,21 +11,19 @@
 import UIKit
 
 struct AddressInfo {
-    var address: String = ""
-    var subaddress: String = ""
-    var locality: String = ""
-    var subLocality: String = ""
-    var postalCode: String = ""
-    var administrativeArea: String = ""
-    var subAdministrativeArea: String = ""
-    var country: String = ""
-    var isoCode: String = ""
-    var placemarkName: String = ""
+    var placemark: CLPlacemark? = nil
     
     var formattedAddress: String {
         get {
             var formatString: String = ""
-            formatString.append(self.address + " " + self.locality + " " + self.postalCode + " " + self.administrativeArea + " " + self.country + " ")
+            if placemark != nil {
+                formatString.append(contentsOf: (self.placemark?.thoroughfare ?? "") + " ")
+                formatString.append(contentsOf: (self.placemark?.subThoroughfare ?? "") + " ")
+                formatString.append(contentsOf: (self.placemark?.postalCode ?? "") + " ")
+                formatString.append(contentsOf: (self.placemark?.administrativeArea ?? "") + " ")
+                formatString.append(contentsOf: self.placemark?.country ?? "")
+            }
+            
             return formatString.replacingOccurrences(of: "  ", with: " ").trimmingCharacters(in: .whitespaces)
         }
     }
@@ -44,17 +42,8 @@ class AppleGeocoder: NSObject {
                     let mark = marks.first
                     
                     var addressInfo = AddressInfo()
-                    addressInfo.address = mark?.thoroughfare ?? ""
-                    addressInfo.subaddress = mark?.thoroughfare ?? ""
-                    addressInfo.locality = mark?.locality ?? ""
-                    addressInfo.subLocality = mark?.subLocality ?? ""
-                    addressInfo.postalCode = mark?.postalCode ?? ""
-                    addressInfo.administrativeArea = mark?.administrativeArea ?? ""
-                    addressInfo.subAdministrativeArea = mark?.subAdministrativeArea ?? ""
-                    addressInfo.country = mark?.country ?? ""
-                    addressInfo.isoCode = mark?.isoCountryCode ?? ""
-                    addressInfo.placemarkName =  mark?.name ?? ""
-                    
+                    addressInfo.placemark = mark
+                    debugPrint(mark as Any)
                     completion(addressInfo, nil)
                 }
             }
