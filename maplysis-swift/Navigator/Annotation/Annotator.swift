@@ -10,11 +10,6 @@
 
 import MapKit
 
-enum GeocoderService: Int {
-	case Apple = 0
-	case Google
-}
-
 class Annotator: NSObject {
 	
 	class func DisplayAnnotation(_ locationCoord:CLLocation, userSelected: Bool, sender: MKMapView) {
@@ -27,60 +22,31 @@ class Annotator: NSObject {
 		else {
 			locAnnotation.title = "Selected Location";
 		}
-		
-		let gc = UserDefaults.standard.integer(forKey: "Geocoder")
-		
-		if let service = GeocoderService(rawValue: gc) {
-			switch service {
-			case GeocoderService.Apple:
-				print("Apple Geocoder")
+		       
+        switch AppPreferences.shared.geocoder {
+        case .Apple:
+            print("Apple Geocoder")
+            
+            AppleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
+                locAnnotation.subtitle = addressInfo?.formattedAddress
+                sender.addAnnotation(locAnnotation)
                 
-                AppleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
-                    locAnnotation.subtitle = addressInfo?.formattedAddress
-                    sender.addAnnotation(locAnnotation)
-                    
-                    let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-                    if !_cLocationUpdates {
-                        sender.selectAnnotation(locAnnotation, animated: true)
-                    }
+                if !AppPreferences.shared.continiousUpdates {
+                    sender.selectAnnotation(locAnnotation, animated: true)
                 }
+            }
+            
+        case .Google:
+            print("Google Geocoder")
+            
+            GoogleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
+                locAnnotation.subtitle = addressInfo
+                sender.addAnnotation(locAnnotation)
                 
-//				Geocoders.appleReverseGeocoder(withLocationCoordinates: locationCoord, completion: { (fAddress: String?) in
-//					locAnnotation.subtitle = fAddress
-//					sender.addAnnotation(locAnnotation)
-//					
-//					let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-//					if !_cLocationUpdates {
-//						sender.selectAnnotation(locAnnotation, animated: true)
-//					}
-//				})
-				
-			case GeocoderService.Google:
-				print("Google Geocoder")
-                
-                GoogleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
-                    locAnnotation.subtitle = addressInfo
-                    sender.addAnnotation(locAnnotation)
-                    
-                    let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-                    if !_cLocationUpdates {
-                        sender.selectAnnotation(locAnnotation, animated: true)
-                    }
+                if !AppPreferences.shared.continiousUpdates {
+                    sender.selectAnnotation(locAnnotation, animated: true)
                 }
-                
-//				Geocoders.googleReverseGeocoder(withLocationCoordinates: locationCoord, completion: { (fAddress: String?) in
-//					locAnnotation.subtitle = fAddress
-//					sender.addAnnotation(locAnnotation)
-//
-//					let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-//					if !_cLocationUpdates {
-//						sender.selectAnnotation(locAnnotation, animated: true)
-//					}
-//				})
-			}
-		}
-		else {
-			print("Say something nasty here")
-		}
+            }
+        }
 	}
 }

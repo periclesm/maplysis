@@ -10,12 +10,6 @@
 
 import UIKit
 
-enum MapTypeEnum: Int {
-	case map = 0
-	case satellite
-	case hybrid
-}
-
 class optionsController: UITableViewController {
 	
 	@IBOutlet var contLocSwitch: UISwitch!
@@ -26,10 +20,10 @@ class optionsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		contLocSwitch.isOn = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-		mZoomProgress.value = UserDefaults.standard.float(forKey: "MapZoomLevel")
-		mapTypeSegm.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "MapType")
-		geocoderSegm.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "Geocoder")
+        contLocSwitch.isOn = AppPreferences.shared.continiousUpdates
+        mZoomProgress.value = AppPreferences.shared.mapZoom
+        mapTypeSegm.selectedSegmentIndex = AppPreferences.shared.mapType.rawValue
+        geocoderSegm.selectedSegmentIndex = AppPreferences.shared.geocoder.rawValue
     }
 	
 	//MARK: - IBActions
@@ -39,22 +33,18 @@ class optionsController: UITableViewController {
 	}
 	
 	@IBAction func SetContiniousUpdating() {
-		UserDefaults.standard.set(contLocSwitch.isOn, forKey: "ContiniousLocation")
-		UserDefaults.standard.synchronize()
+        AppPreferences.shared.continiousUpdates = contLocSwitch.isOn
 	}
 	
 	@IBAction func SetMapZoomLevel() {
-		UserDefaults.standard.set(mZoomProgress.value, forKey: "MapZoomLevel")
-		UserDefaults.standard.synchronize()
+        AppPreferences.shared.mapZoom = mZoomProgress.value
 	}
 	
 	@IBAction func SetMapType() {
-		UserDefaults.standard.set(mapTypeSegm.selectedSegmentIndex, forKey: "MapType")
-		UserDefaults.standard.synchronize()
+        AppPreferences.shared.mapType = MapType(rawValue: mapTypeSegm.selectedSegmentIndex)!
 	}
 	
 	@IBAction func SetGeocoder() {
-		UserDefaults.standard.set(geocoderSegm.selectedSegmentIndex, forKey: "Geocoder")
-		UserDefaults.standard.synchronize()
+        AppPreferences.shared.geocoder = GeocoderService(rawValue: geocoderSegm.selectedSegmentIndex)!
 	}
 }

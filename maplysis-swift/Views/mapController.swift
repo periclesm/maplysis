@@ -33,7 +33,7 @@ class mapController: UIViewController {
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-		self.setmapType(type: MapTypeEnum(rawValue: UserDefaults.standard.integer(forKey: "MapType"))!)
+        self.setmapType(type: AppPreferences.shared.mapType)
 		super.viewWillAppear(true)
 	}
 	
@@ -42,7 +42,7 @@ class mapController: UIViewController {
 		super.viewWillDisappear(true)
 	}
 
-	func setmapType(type: MapTypeEnum) {
+	func setmapType(type: MapType) {
 		switch type {
 		case .satellite:
 			mapView.mapType = .satellite
@@ -51,9 +51,6 @@ class mapController: UIViewController {
 			mapView.mapType = .hybrid
 
 		case .map:
-			fallthrough
-
-		default:
 			mapView.mapType = .standard
 		}
 	}
@@ -61,9 +58,7 @@ class mapController: UIViewController {
 	//MARK: - IBActions
 	
 	@IBAction func GetCurrentLocation(_ sender: Any) {
-		let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-		
-		if !_cLocationUpdates {
+		if !AppPreferences.shared.continiousUpdates {
 			lc.GetCurrentLocation(sender: self)
 		}
 		else {
@@ -96,9 +91,7 @@ class mapController: UIViewController {
 		
 		RegionManager.DisplayRegion(locationRegion: linfo.currentLocation!, sender: mapView!)
 		
-		let _cLocationUpdates = UserDefaults.standard.bool(forKey: "ContiniousLocation")
-		
-		if !_cLocationUpdates {
+		if !AppPreferences.shared.continiousUpdates {
 			Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: false, sender: mapView!)
 		}
 	}

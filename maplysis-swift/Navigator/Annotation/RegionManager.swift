@@ -13,8 +13,7 @@ import MapKit
 class RegionManager: NSObject {
 	
 	class func DisplayRegion(locationRegion: CLLocation, sender: MKMapView) {
-		let _zoomLevel = UserDefaults.standard.double(forKey: "MapZoomLevel")
-		let region = MKCoordinateRegion.init(center: locationRegion.coordinate, latitudinalMeters: _zoomLevel, longitudinalMeters: _zoomLevel)
+		let region = MKCoordinateRegion.init(center: locationRegion.coordinate, latitudinalMeters: Double(AppPreferences.shared.mapZoom), longitudinalMeters: Double(AppPreferences.shared.mapZoom))
 		
 		sender.setRegion(sender.regionThatFits(region), animated: true)
 	}
