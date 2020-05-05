@@ -43,7 +43,6 @@
 		6858E05C1F093364008FDFD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6858E05E1F093364008FDFD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6858E0651F0933A9008FDFD7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		68CCABDB1F0A9AF500DC21B0 /* maplysis-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "maplysis-swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		68CCE62B23E31DF500B5F2B4 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,7 +134,6 @@
 				6858E0591F093364008FDFD7 /* Assets.xcassets */,
 				6858E05E1F093364008FDFD7 /* Info.plist */,
 				681FB05A20EA92C9007B307B /* AcropolisMuseum.gpx */,
-				68CCABDB1F0A9AF500DC21B0 /* maplysis-swift-Bridging-Header.h */,
 			);
 			path = "maplysis-swift";
 			sourceTree = "<group>";
@@ -391,7 +389,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloudfields.maplysis-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "maplysis-swift/maplysis-swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -410,7 +407,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloudfields.maplysis-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "maplysis-swift/maplysis-swift-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
