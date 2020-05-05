@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class GoogleGeocoder: NSObject {
     
@@ -15,7 +16,7 @@ class GoogleGeocoder: NSObject {
      * Doing the simplest Reverse geocoding here.
      * For more complex and analytical Geocoding, check the Google documentation
      * https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding
-     * ALSO NOTE: Since the introduction to the API Keys, this service will work only if you provide with a valid key.
+     * ALSO NOTE: Since the introduction to the API Keys, this service will work only if you provide with a valid key. For obvious reasons, such key is not included here...
      */
     
     class func reverseGeocoder(location: CLLocation, completion: @escaping (String?) -> ()) {

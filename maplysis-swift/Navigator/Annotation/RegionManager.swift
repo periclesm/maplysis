@@ -12,7 +12,7 @@ import MapKit
 
 class RegionManager: NSObject {
 	
-	class func DisplayRegion(locationRegion: CLLocation, sender: MKMapView) {
+	class func getRegion(locationRegion: CLLocation, sender: MKMapView) {
 		let region = MKCoordinateRegion.init(center: locationRegion.coordinate, latitudinalMeters: Double(AppPreferences.shared.mapZoom), longitudinalMeters: Double(AppPreferences.shared.mapZoom))
 		
 		sender.setRegion(sender.regionThatFits(region), animated: true)

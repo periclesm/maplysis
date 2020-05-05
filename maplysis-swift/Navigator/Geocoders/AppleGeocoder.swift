@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 struct AddressInfo {
     var placemark: CLPlacemark? = nil

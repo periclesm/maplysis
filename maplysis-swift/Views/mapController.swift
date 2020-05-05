@@ -16,18 +16,13 @@ class mapController: UIViewController {
 	@IBOutlet var locationButton: UIButton!
 	@IBOutlet var mapView: MKMapView!
 	@IBOutlet var longPress: UIGestureRecognizer!
-	
-	var linfo: LocationInfo!
-	var lc: LocationController!
 
     override func viewDidLoad() {
 		NotificationCenter.default.addObserver(self, selector: #selector(self.DisplayLocation), name: Notification.Name("UpdateLocation"), object: nil)
 		super.viewDidLoad()
 
-		linfo = LocationInfo.sharedInstance
-		lc = LocationController.sharedInstance
-		lc.senderVC = self
-		lc.LocationPermissions()
+		LocationController.sharedInstance.senderVC = self
+		LocationController.sharedInstance.locationPermissions()
 
 		locationButton.layer.cornerRadius = locationButton.bounds.size.width / 2
     }
@@ -38,7 +33,7 @@ class mapController: UIViewController {
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		lc.StopLocationUpdates(sender: self)
+		LocationController.sharedInstance.stopLocationUpdates(sender: self)
 		super.viewWillDisappear(true)
 	}
 
@@ -59,15 +54,15 @@ class mapController: UIViewController {
 	
 	@IBAction func GetCurrentLocation(_ sender: Any) {
 		if !AppPreferences.shared.continiousUpdates {
-			lc.GetCurrentLocation(sender: self)
+			LocationController.sharedInstance.getCurrentLocation(sender: self)
 		}
 		else {
-			if lc.isUpdating {
-				lc.StopLocationUpdates(sender: self)
+			if LocationController.sharedInstance.isUpdating {
+				LocationController.sharedInstance.stopLocationUpdates(sender: self)
 				locationButton?.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
 			}
 			else {
-				lc.StartLocationUpdates(sender: self)
+				LocationController.sharedInstance.startLocationUpdates(sender: self)
 				locationButton?.tintColor = UIColor .green
 			}
 		}
@@ -78,9 +73,9 @@ class mapController: UIViewController {
             mapView.removeAnnotations((mapView?.annotations)!)
             
             let touchPoint = longPress?.location(in: mapView)
-            linfo.ConvertTouchesToLocation(touchPoint: touchPoint!, sender: mapView!)
+            LocationInfo.sharedInstance.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
             
-            Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: true, sender: mapView!)
+            Annotator.displayAnnotation(LocationInfo.sharedInstance.currentLocation!, userSelected: true, sender: mapView!)
         }
 	}
 
@@ -89,10 +84,10 @@ class mapController: UIViewController {
 	@objc func DisplayLocation() {
 		mapView.removeAnnotations((mapView?.annotations)!)
 		
-		RegionManager.DisplayRegion(locationRegion: linfo.currentLocation!, sender: mapView!)
+		RegionManager.getRegion(locationRegion: LocationInfo.sharedInstance.currentLocation!, sender: mapView!)
 		
 		if !AppPreferences.shared.continiousUpdates {
-			Annotator.DisplayAnnotation(linfo.currentLocation!, userSelected: false, sender: mapView!)
+			Annotator.displayAnnotation(LocationInfo.sharedInstance.currentLocation!, userSelected: false, sender: mapView!)
 		}
 	}
 }

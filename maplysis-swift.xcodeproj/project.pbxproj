@@ -80,8 +80,6 @@
 		681FB05E20EA9329007B307B /* Geocoders */ = {
 			isa = PBXGroup;
 			children = (
-				682ED15C1F0B774C0075F0DB /* Geocoders.h */,
-				682ED15D1F0B774C0075F0DB /* Geocoders.m */,
 				683E1D8D23E0844A0096BBC7 /* AppleGeocoder.swift */,
 				683E1D8F23E084D30096BBC7 /* GoogleGeocoder.swift */,
 			);
@@ -127,6 +125,7 @@
 		6858E0511F093364008FDFD7 /* maplysis-swift */ = {
 			isa = PBXGroup;
 			children = (
+				68DD8CF824616F2900D2CD54 /* deprecated */,
 				6858E0521F093364008FDFD7 /* AppDelegate.swift */,
 				68CCE62B23E31DF500B5F2B4 /* AppPreferences.swift */,
 				682ED14A1F0B77240075F0DB /* Navigator */,
@@ -147,6 +146,15 @@
 				6858E0651F0933A9008FDFD7 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68DD8CF824616F2900D2CD54 /* deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				682ED15C1F0B774C0075F0DB /* Geocoders.h */,
+				682ED15D1F0B774C0075F0DB /* Geocoders.m */,
+			);
+			path = deprecated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

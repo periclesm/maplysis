@@ -17,7 +17,7 @@ class LocationInfo: NSObject {
 	var currentLocation: CLLocation?
 	var address: String?
 	
-	func ConvertTouchesToLocation(touchPoint: CGPoint, sender: MKMapView) {
+	func touchToLocation(touchPoint: CGPoint, sender: MKMapView) {
 		let touchCoordinate = sender.convert(touchPoint, toCoordinateFrom: sender)
 		currentLocation = CLLocation(latitude:touchCoordinate.latitude, longitude:touchCoordinate.longitude)
 	}

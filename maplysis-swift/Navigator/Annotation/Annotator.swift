@@ -12,7 +12,7 @@ import MapKit
 
 class Annotator: NSObject {
 	
-	class func DisplayAnnotation(_ locationCoord:CLLocation, userSelected: Bool, sender: MKMapView) {
+	class func displayAnnotation(_ locationCoord:CLLocation, userSelected: Bool, sender: MKMapView) {
 		let locAnnotation = MKPointAnnotation()
 		locAnnotation.coordinate = locationCoord.coordinate
 		

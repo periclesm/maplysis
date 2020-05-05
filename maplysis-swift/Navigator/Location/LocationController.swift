@@ -14,14 +14,12 @@ import CoreLocation
 class LocationController: NSObject, CLLocationManagerDelegate {
 
 	static let sharedInstance = LocationController()
-	var locManager: CLLocationManager
-	var isUpdating: Bool
+	var locManager: CLLocationManager = CLLocationManager()
+	var isUpdating: Bool = false
 	var senderVC: Any?
 	
 	override init() {
-		locManager = CLLocationManager()
-		isUpdating = false
-		super.init()
+        super.init()
 		
 		locManager.delegate = self
 		locManager.distanceFilter = kCLDistanceFilterNone
@@ -31,7 +29,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 
 	//MARK: - Location Updates
 	
-	func GetCurrentLocation(sender: Any?) {
+	func getCurrentLocation(sender: Any?) {
 		isUpdating = false;
 		locManager.requestLocation()
 
@@ -40,7 +38,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 		}
 	}
 	
-	func StartLocationUpdates(sender: Any?) {
+	func startLocationUpdates(sender: Any?) {
 		isUpdating = true;
 		locManager.startUpdatingLocation()
 
@@ -49,7 +47,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 		}
 	}
 	
-	func StopLocationUpdates(sender: Any?) {
+	func stopLocationUpdates(sender: Any?) {
 		locManager.stopUpdatingLocation()
 		isUpdating = false;
 
@@ -60,7 +58,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 
 	//MARK: - Location Permissions
 
-	func LocationPermissions() {
+	func locationPermissions() {
 		switch CLLocationManager.authorizationStatus() {
 		case .notDetermined:
 			locManager.requestWhenInUseAuthorization()
@@ -70,10 +68,10 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 			break
 
 		case .restricted:
-			LocationErrorWithDeviceService(enabled: false)
+			locationErrorWithDeviceService(enabled: false)
 
 		case .denied:
-			LocationErrorWithDeviceService(enabled: CLLocationManager.locationServicesEnabled())
+			locationErrorWithDeviceService(enabled: CLLocationManager.locationServicesEnabled())
             
         default: break
 		}
@@ -86,7 +84,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 		switch status {
 		case .authorizedAlways, .authorizedWhenInUse:
 			print("[Location] Location authorized")
-			self.GetCurrentLocation(sender: self.senderVC)
+			self.getCurrentLocation(sender: self.senderVC)
 			
 		default:
 			print("[Location] Location rejected")
@@ -96,7 +94,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		print("[Location] Failed Location: \(error.localizedDescription)")
 
-		LocationErrorWithDeviceService(enabled: CLLocationManager.locationServicesEnabled())
+		locationErrorWithDeviceService(enabled: CLLocationManager.locationServicesEnabled())
 		locManager.stopUpdatingLocation()
 	}
 	
@@ -112,7 +110,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
 
 	//MARK: - Error Handling
 
-	func LocationErrorWithDeviceService(enabled: Bool)
+	func locationErrorWithDeviceService(enabled: Bool)
 	{
 		var title: String?
 		var message: String?
