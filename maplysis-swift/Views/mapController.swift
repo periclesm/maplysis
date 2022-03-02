@@ -11,18 +11,24 @@
 import UIKit
 import MapKit
 
+protocol MapDelegate {
+	func displayLocation()
+	func locationErrorWithDeviceService(enabled: Bool)
+}
+
 class mapController: UIViewController {
 	
-	@IBOutlet var locationButton: UIButton!
-	@IBOutlet var mapView: MKMapView!
-	@IBOutlet var longPress: UIGestureRecognizer!
+	@IBOutlet weak var locationButton: UIButton!
+	@IBOutlet weak var mapView: MKMapView!
+	@IBOutlet weak var longPress: UIGestureRecognizer!
+	
+	let locController = LocationController()
 
     override func viewDidLoad() {
-		NotificationCenter.default.addObserver(self, selector: #selector(self.DisplayLocation), name: Notification.Name("UpdateLocation"), object: nil)
 		super.viewDidLoad()
 
-		LocationController.sharedInstance.senderVC = self
-		LocationController.sharedInstance.locationPermissions()
+		locController.mapDelegate = self
+		locController.locationPermissions()
 
 		locationButton.layer.cornerRadius = locationButton.bounds.size.width / 2
     }
@@ -33,7 +39,7 @@ class mapController: UIViewController {
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		LocationController.sharedInstance.stopLocationUpdates(sender: self)
+		locController.stopLocationUpdates()
 		super.viewWillDisappear(true)
 	}
 
@@ -54,15 +60,15 @@ class mapController: UIViewController {
 	
 	@IBAction func GetCurrentLocation(_ sender: Any) {
 		if !AppPreferences.shared.continiousUpdates {
-			LocationController.sharedInstance.getCurrentLocation(sender: self)
+			locController.getCurrentLocation()
 		}
 		else {
-			if LocationController.sharedInstance.isUpdating {
-				LocationController.sharedInstance.stopLocationUpdates(sender: self)
+			if locController.isUpdating {
+				locController.stopLocationUpdates()
 				locationButton?.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
 			}
 			else {
-				LocationController.sharedInstance.startLocationUpdates(sender: self)
+				locController.startLocationUpdates()
 				locationButton?.tintColor = UIColor .green
 			}
 		}
@@ -73,21 +79,47 @@ class mapController: UIViewController {
             mapView.removeAnnotations((mapView?.annotations)!)
             
             let touchPoint = longPress?.location(in: mapView)
-            LocationInfo.sharedInstance.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
+            LocationInfo.shared.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
             
-            Annotator.displayAnnotation(LocationInfo.sharedInstance.currentLocation!, userSelected: true, sender: mapView!)
+            Annotator.displayAnnotation(LocationInfo.shared.currentLocation!, userSelected: true, sender: mapView!)
         }
 	}
 
-	//MARK: - Location Display
+	
+}
 
-	@objc func DisplayLocation() {
+extension mapController: MapDelegate {
+	
+	//MARK: - Location Display
+	
+	func displayLocation() {
 		mapView.removeAnnotations((mapView?.annotations)!)
 		
-		RegionManager.getRegion(locationRegion: LocationInfo.sharedInstance.currentLocation!, sender: mapView!)
+		RegionManager.getRegion(locationRegion: LocationInfo.shared.currentLocation!, sender: mapView!)
 		
 		if !AppPreferences.shared.continiousUpdates {
-			Annotator.displayAnnotation(LocationInfo.sharedInstance.currentLocation!, userSelected: false, sender: mapView!)
+			Annotator.displayAnnotation(LocationInfo.shared.currentLocation!, userSelected: false, sender: mapView!)
 		}
+	}
+	
+	//MARK: - Display Error Alert
+	func locationErrorWithDeviceService(enabled: Bool) {
+		var title: String?
+		var message: String?
+		
+		if enabled {
+			title = "Location permissions"
+			message = "You have denied location services for this app."
+		}
+		else {
+			title = "Location services"
+			message = "You have disabled or restricted location services on your device."
+		}
+		
+		let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+		let okbutton = UIAlertAction.init(title: "OK", style: .default, handler: nil)
+		alert.addAction(okbutton)
+		
+		self.present(alert, animated: true, completion:nil)
 	}
 }

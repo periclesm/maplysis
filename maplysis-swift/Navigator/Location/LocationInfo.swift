@@ -13,7 +13,7 @@ import MapKit
 
 class LocationInfo: NSObject {
 	
-	static let sharedInstance = LocationInfo()
+	static let shared = LocationInfo()
 	var currentLocation: CLLocation?
 	var address: String?
 	

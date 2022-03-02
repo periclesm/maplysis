@@ -12,10 +12,10 @@ import UIKit
 
 class optionsController: UITableViewController {
 	
-	@IBOutlet var contLocSwitch: UISwitch!
-	@IBOutlet var mZoomProgress: UISlider!
-	@IBOutlet var mapTypeSegm: UISegmentedControl!
-	@IBOutlet var geocoderSegm: UISegmentedControl!
+	@IBOutlet weak var contLocSwitch: UISwitch!
+	@IBOutlet weak var mZoomProgress: UISlider!
+	@IBOutlet weak var mapTypeSegm: UISegmentedControl!
+	@IBOutlet weak var geocoderSegm: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
