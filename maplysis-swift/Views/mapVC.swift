@@ -16,7 +16,7 @@ protocol MapDelegate {
 	func locationErrorWithDeviceService(enabled: Bool)
 }
 
-class mapController: UIViewController {
+class mapVC: UIViewController {
 	
 	@IBOutlet weak var locationButton: UIButton!
 	@IBOutlet weak var mapView: MKMapView!
@@ -88,7 +88,7 @@ class mapController: UIViewController {
 	
 }
 
-extension mapController: MapDelegate {
+extension mapVC: MapDelegate {
 	
 	//MARK: - Location Display
 	

@@ -12,8 +12,8 @@
 		682ED1561F0B77240075F0DB /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14D1F0B77240075F0DB /* LocationController.swift */; };
 		682ED1571F0B77240075F0DB /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14E1F0B77240075F0DB /* LocationInfo.swift */; };
 		682ED1581F0B77240075F0DB /* RegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED14F1F0B77240075F0DB /* RegionManager.swift */; };
-		682ED1591F0B77240075F0DB /* mapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1511F0B77240075F0DB /* mapController.swift */; };
-		682ED15B1F0B77240075F0DB /* optionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1531F0B77240075F0DB /* optionsController.swift */; };
+		682ED1591F0B77240075F0DB /* mapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1511F0B77240075F0DB /* mapVC.swift */; };
+		682ED15B1F0B77240075F0DB /* optionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682ED1531F0B77240075F0DB /* optionsVC.swift */; };
 		683E1D8E23E0844A0096BBC7 /* AppleGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683E1D8D23E0844A0096BBC7 /* AppleGeocoder.swift */; };
 		683E1D9023E084D30096BBC7 /* GoogleGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683E1D8F23E084D30096BBC7 /* GoogleGeocoder.swift */; };
 		6858E0531F093364008FDFD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858E0521F093364008FDFD7 /* AppDelegate.swift */; };
@@ -30,8 +30,8 @@
 		682ED14D1F0B77240075F0DB /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		682ED14E1F0B77240075F0DB /* LocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
 		682ED14F1F0B77240075F0DB /* RegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionManager.swift; sourceTree = "<group>"; };
-		682ED1511F0B77240075F0DB /* mapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapController.swift; sourceTree = "<group>"; };
-		682ED1531F0B77240075F0DB /* optionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = optionsController.swift; sourceTree = "<group>"; };
+		682ED1511F0B77240075F0DB /* mapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapVC.swift; sourceTree = "<group>"; };
+		682ED1531F0B77240075F0DB /* optionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = optionsVC.swift; sourceTree = "<group>"; };
 		682ED15C1F0B774C0075F0DB /* Geocoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geocoders.h; sourceTree = "<group>"; };
 		682ED15D1F0B774C0075F0DB /* Geocoders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geocoders.m; sourceTree = "<group>"; };
 		683E1D8D23E0844A0096BBC7 /* AppleGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleGeocoder.swift; sourceTree = "<group>"; };
@@ -98,8 +98,9 @@
 		682ED1501F0B77240075F0DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				682ED1511F0B77240075F0DB /* mapController.swift */,
-				682ED1531F0B77240075F0DB /* optionsController.swift */,
+				E853762F27CF71A400522265 /* Storyboards */,
+				682ED1511F0B77240075F0DB /* mapVC.swift */,
+				682ED1531F0B77240075F0DB /* optionsVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,8 +130,6 @@
 				68CCE62B23E31DF500B5F2B4 /* AppPreferences.swift */,
 				682ED14A1F0B77240075F0DB /* Navigator */,
 				682ED1501F0B77240075F0DB /* Views */,
-				6858E0561F093364008FDFD7 /* Main.storyboard */,
-				6858E05B1F093364008FDFD7 /* LaunchScreen.storyboard */,
 				6858E0591F093364008FDFD7 /* Assets.xcassets */,
 				6858E05E1F093364008FDFD7 /* Info.plist */,
 				681FB05A20EA92C9007B307B /* AcropolisMuseum.gpx */,
@@ -153,6 +152,15 @@
 				682ED15D1F0B774C0075F0DB /* Geocoders.m */,
 			);
 			path = deprecated;
+			sourceTree = "<group>";
+		};
+		E853762F27CF71A400522265 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6858E0561F093364008FDFD7 /* Main.storyboard */,
+				6858E05B1F093364008FDFD7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,10 +242,10 @@
 				682ED1561F0B77240075F0DB /* LocationController.swift in Sources */,
 				682ED1581F0B77240075F0DB /* RegionManager.swift in Sources */,
 				683E1D8E23E0844A0096BBC7 /* AppleGeocoder.swift in Sources */,
-				682ED1591F0B77240075F0DB /* mapController.swift in Sources */,
+				682ED1591F0B77240075F0DB /* mapVC.swift in Sources */,
 				682ED1571F0B77240075F0DB /* LocationInfo.swift in Sources */,
 				683E1D9023E084D30096BBC7 /* GoogleGeocoder.swift in Sources */,
-				682ED15B1F0B77240075F0DB /* optionsController.swift in Sources */,
+				682ED15B1F0B77240075F0DB /* optionsVC.swift in Sources */,
 				68CCE62C23E31DF500B5F2B4 /* AppPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

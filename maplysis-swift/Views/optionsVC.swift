@@ -10,7 +10,7 @@
 
 import UIKit
 
-class optionsController: UITableViewController {
+class optionsVC: UITableViewController {
 	
 	@IBOutlet weak var contLocSwitch: UISwitch!
 	@IBOutlet weak var mZoomProgress: UISlider!
