@@ -3,6 +3,7 @@
 //  maplysis-swift
 //
 //  Created by Pericles Maravelakis on 28/1/20.
+//	periclesm@cloudfields.net
 //  Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)
 //  https://creativecommons.org/licenses/by/4.0/
 //
@@ -25,11 +26,13 @@ class GoogleGeocoder: NSObject {
             let lonString = "\(location.coordinate.longitude)"
             
             //make sure you enter the correct API key for Google Geocoding API
-            let requestURLString = "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(latString),\(lonString)%key=<your-api-key>".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+			let GMapsAPIKey: String = "" // <#T##Insert your Google API KEY here#>
+			let requestURLString = "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(latString),\(lonString)%key=\(GMapsAPIKey)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             
             let requestURL = URL(string: requestURLString!)
             
             do {
+				//Change this into an async URLSession call
                 let responseData = try Data(contentsOf: requestURL!, options: .mappedIfSafe)
                 
                 if responseData.count > 0 {

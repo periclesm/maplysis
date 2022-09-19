@@ -84,8 +84,6 @@ class mapVC: UIViewController {
             Annotator.displayAnnotation(LocationInfo.shared.currentLocation!, userSelected: true, sender: mapView!)
         }
 	}
-
-	
 }
 
 extension mapVC: MapDelegate {

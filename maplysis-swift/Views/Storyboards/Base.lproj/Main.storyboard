@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kja-7M-o3Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kja-7M-o3Y">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -63,7 +63,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="krc-TJ-1LD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PDp-73-eRW" firstAttribute="top" secondItem="DH4-FW-wbU" secondAttribute="top" id="3Sc-hA-SXj"/>
                             <constraint firstItem="krc-TJ-1LD" firstAttribute="bottom" secondItem="DE2-Gd-Nvi" secondAttribute="bottom" constant="24" id="Nor-Gn-Rjo"/>
@@ -97,6 +97,28 @@
             </objects>
             <point key="canvasLocation" x="671" y="75"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ct2-fA-GIz">
+            <objects>
+                <navigationController storyboardIdentifier="SecNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7iz-JA-lIp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VpM-SK-mRk">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" name="primaryForeground"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="-1300" vertical="0.0"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0Pt-dQ-ju6" kind="relationship" relationship="rootViewController" id="2Ve-it-n5N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pbp-MZ-Vxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="836"/>
+        </scene>
         <!--Options-->
         <scene sceneID="D6O-uu-Mxw">
             <objects>
@@ -105,7 +127,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="UHY-wW-Gvu"/>
-                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <sections>
                             <tableViewSection headerTitle="Options" id="zFm-1Z-dBy">
@@ -297,28 +319,6 @@
             </objects>
             <point key="canvasLocation" x="1535" y="835"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ct2-fA-GIz">
-            <objects>
-                <navigationController storyboardIdentifier="SecNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7iz-JA-lIp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VpM-SK-mRk">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                            <color key="textColor" name="primaryForeground"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="-1300" vertical="0.0"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="0Pt-dQ-ju6" kind="relationship" relationship="rootViewController" id="2Ve-it-n5N"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pbp-MZ-Vxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="670" y="836"/>
-        </scene>
     </scenes>
     <color key="tintColor" name="primaryForeground"/>
     <resources>
@@ -328,11 +328,8 @@
         <namedColor name="primaryForeground">
             <color red="0.74901960784313726" green="0.35294117647058826" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="groupTableViewBackgroundColor">
+        <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
