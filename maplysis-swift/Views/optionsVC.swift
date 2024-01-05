@@ -16,6 +16,9 @@ class optionsVC: UITableViewController {
 	@IBOutlet weak var mZoomProgress: UISlider!
 	@IBOutlet weak var mapTypeSegm: UISegmentedControl!
 	@IBOutlet weak var geocoderSegm: UISegmentedControl!
+    
+    var mapTypeUpdate: (() -> Void)?
+    var locationUpdate: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +41,12 @@ class optionsVC: UITableViewController {
 	
 	@IBAction func SetMapZoomLevel() {
         AppPreferences.shared.mapZoom = mZoomProgress.value
-        #warning("Display Location Again")
+        locationUpdate?()
 	}
 	
 	@IBAction func SetMapType() {
         AppPreferences.shared.mapType = MapType(rawValue: mapTypeSegm.selectedSegmentIndex)!
-        #warning("Set Map Type Again")
+        mapTypeUpdate?()
 	}
 	
 	@IBAction func SetGeocoder() {

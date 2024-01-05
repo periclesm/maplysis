@@ -29,32 +29,39 @@ class mapVC: UIViewController {
 
 		locController.mapDelegate = self
 		locController.locationPermissions()
+        locController.stopLocationUpdates()
 
 		locationButton.layer.cornerRadius = locationButton.bounds.size.width / 2
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.setmapType(type: AppPreferences.shared.mapType)
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		locController.stopLocationUpdates()
-		super.viewWillDisappear(true)
-	}
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locController.stopLocationUpdates()
+    }
 
-	func setmapType(type: MapType) {
-		switch type {
-		case .satellite:
-			mapView.mapType = .satellite
-
-		case .hybrid:
-			mapView.mapType = .hybrid
-
-		case .map:
-			mapView.mapType = .standard
-		}
-	}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OptionsSegue" {
+            let dnav = segue.destination as! UINavigationController
+            let dvc = dnav.viewControllers.first as! optionsVC
+            dvc.mapTypeUpdate = {
+                self.setmapType(type: AppPreferences.shared.mapType)
+            }
+            dvc.locationUpdate = {
+                self.displayLocation()
+            }
+        }
+    }
+    
+    func setmapType(type: MapType) {
+        switch type {
+        case .standard:
+            mapView.mapType = .standard
+        case .satellite:
+            mapView.mapType = .satellite
+        case .hybrid:
+            mapView.mapType = .hybrid
+        }
+    }
 	
 	//MARK: - IBActions
 	

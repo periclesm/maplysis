@@ -14,7 +14,7 @@ enum GeocoderService: Int {
 }
 
 enum MapType: Int {
-    case map = 0
+    case standard = 0
     case satellite
     case hybrid
 }

@@ -24,6 +24,7 @@
 		68CCE62C23E31DF500B5F2B4 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CCE62B23E31DF500B5F2B4 /* AppPreferences.swift */; };
 		E861D42F2B47F440001028CE /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861D42E2B47F440001028CE /* Address.swift */; };
 		E861D4332B47FF8A001028CE /* MALocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861D4322B47FF8A001028CE /* MALocationButton.swift */; };
+		E861D4352B480BEE001028CE /* MASegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861D4342B480BEE001028CE /* MASegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		68CCE62B23E31DF500B5F2B4 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
 		E861D42E2B47F440001028CE /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		E861D4322B47FF8A001028CE /* MALocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALocationButton.swift; sourceTree = "<group>"; };
+		E861D4342B480BEE001028CE /* MASegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				E861D4322B47FF8A001028CE /* MALocationButton.swift */,
+				E861D4342B480BEE001028CE /* MASegmentedControl.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				E861D4332B47FF8A001028CE /* MALocationButton.swift in Sources */,
 				682ED15B1F0B77240075F0DB /* optionsVC.swift in Sources */,
 				E861D42F2B47F440001028CE /* Address.swift in Sources */,
+				E861D4352B480BEE001028CE /* MASegmentedControl.swift in Sources */,
 				68CCE62C23E31DF500B5F2B4 /* AppPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
