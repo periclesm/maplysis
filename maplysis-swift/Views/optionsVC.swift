@@ -25,7 +25,7 @@ class optionsVC: UITableViewController {
         super.viewDidLoad()
 		
         contLocSwitch.isOn = AppPreferences.shared.continuousUpdates
-        mZoomProgress.value = AppPreferences.shared.mapZoom
+        mZoomProgress.value = Float(AppPreferences.shared.mapZoom)
         mapTypeSegm.selectedSegmentIndex = AppPreferences.shared.mapType.rawValue
         geocoderSegm.selectedSegmentIndex = AppPreferences.shared.geocoder.rawValue
     }
@@ -42,7 +42,7 @@ class optionsVC: UITableViewController {
 	}
 	
 	@IBAction func setMapZoomLevel() {
-        AppPreferences.shared.mapZoom = mZoomProgress.value
+        AppPreferences.shared.mapZoom = Double(mZoomProgress.value)
         locationUpdate?()
 	}
 	

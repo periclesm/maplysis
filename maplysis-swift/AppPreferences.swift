@@ -53,14 +53,14 @@ class AppPreferences: NSObject {
         }
     }
     
-    var mapZoom: Float {
+    var mapZoom: Double {
         set {
 			defaults.set(newValue, forKey: "MapZoomLevel")
 			
 		}
         get {
             if defaults.object(forKey: "MapZoomLevel") != nil {
-                return defaults.float(forKey: "MapZoomLevel")
+                return defaults.double(forKey: "MapZoomLevel")
             }
             else {
                 return 500.0
