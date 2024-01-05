@@ -34,8 +34,8 @@ class mapVC: UIViewController {
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.setmapType(type: AppPreferences.shared.mapType)
-		super.viewWillAppear(true)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -79,9 +79,9 @@ class mapVC: UIViewController {
             mapView.removeAnnotations((mapView?.annotations)!)
             
             let touchPoint = longPress?.location(in: mapView)
-            LocationInfo.shared.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
+            Location.shared.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
             
-            Annotator.displayAnnotation(LocationInfo.shared.currentLocation!, userSelected: true, sender: mapView!)
+            Annotator.displayAnnotation(Location.shared.currentLocation!, userSelected: true, sender: mapView!)
         }
 	}
 }
@@ -93,10 +93,10 @@ extension mapVC: MapDelegate {
 	func displayLocation() {
 		mapView.removeAnnotations((mapView?.annotations)!)
 		
-		RegionManager.getRegion(locationRegion: LocationInfo.shared.currentLocation!, sender: mapView!)
+		RegionManager.getRegion(locationRegion: Location.shared.currentLocation!, sender: mapView!)
 		
 		if !AppPreferences.shared.continiousUpdates {
-			Annotator.displayAnnotation(LocationInfo.shared.currentLocation!, userSelected: false, sender: mapView!)
+			Annotator.displayAnnotation(Location.shared.currentLocation!, userSelected: false, sender: mapView!)
 		}
 	}
 	

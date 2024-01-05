@@ -38,10 +38,12 @@ class optionsVC: UITableViewController {
 	
 	@IBAction func SetMapZoomLevel() {
         AppPreferences.shared.mapZoom = mZoomProgress.value
+        #warning("Display Location Again")
 	}
 	
 	@IBAction func SetMapType() {
         AppPreferences.shared.mapType = MapType(rawValue: mapTypeSegm.selectedSegmentIndex)!
+        #warning("Set Map Type Again")
 	}
 	
 	@IBAction func SetGeocoder() {

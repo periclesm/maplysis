@@ -11,9 +11,9 @@
 import UIKit
 import MapKit
 
-class LocationInfo: NSObject {
+class Location: NSObject {
 	
-	static let shared = LocationInfo()
+	static let shared = Location()
 	var currentLocation: CLLocation?
 	var address: String?
 	
