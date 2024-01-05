@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NMV-zz-eXE">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -24,6 +24,23 @@
                                     <outletCollection property="gestureRecognizers" destination="fmt-Ld-4Zu" appends="YES" id="Ics-En-2Ns"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-70-CIO" userLabel="OptionsButton">
+                                <rect key="frame" x="328.66666666666669" y="62" width="34.333333333333314" height="34.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8wW-70-CIO" secondAttribute="height" multiplier="1:1" id="KkZ-xb-ES7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Wr7-a1-wo8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                    <backgroundConfiguration key="background" strokeWidth="1" strokeOutset="2">
+                                        <color key="strokeColor" systemColor="systemOrangeColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="7iz-JA-lIp" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="formSheet" id="1bB-9g-b9Y"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE2-Gd-Nvi" customClass="MALocationButton" customModule="maplysis_swift" customModuleProvider="target">
                                 <rect key="frame" x="159.66666666666666" y="698" width="56" height="56"/>
                                 <constraints>
@@ -33,54 +50,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="location.fill" catalog="system"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
-                                    <imageReference key="image" image="location" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="location" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    <backgroundConfiguration key="background" strokeWidth="2" strokeOutset="4">
+                                        <color key="strokeColor" systemColor="systemOrangeColor"/>
+                                    </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="updateLocation" destination="NMV-zz-eXE" eventType="touchUpInside" id="hpZ-QW-OYu"/>
                                 </connections>
                             </button>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KX2-jW-zy7">
-                                <rect key="frame" x="319" y="50" width="48" height="48"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T5g-4w-tV7">
-                                    <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-70-CIO">
-                                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
-                                                <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <segue destination="7iz-JA-lIp" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="pageSheet" id="1bB-9g-b9Y"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="8wW-70-CIO" secondAttribute="bottom" id="AO4-3T-d8A"/>
-                                        <constraint firstItem="8wW-70-CIO" firstAttribute="leading" secondItem="T5g-4w-tV7" secondAttribute="leading" id="BCT-JI-OVX"/>
-                                        <constraint firstItem="8wW-70-CIO" firstAttribute="top" secondItem="T5g-4w-tV7" secondAttribute="top" id="JQb-JZ-CsT"/>
-                                        <constraint firstAttribute="trailing" secondItem="8wW-70-CIO" secondAttribute="trailing" id="xpK-JD-vBi"/>
-                                    </constraints>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="KX2-jW-zy7" secondAttribute="height" multiplier="1:1" id="iSj-it-WRp"/>
-                                    <constraint firstAttribute="width" constant="48" id="o9u-2N-lpb"/>
-                                </constraints>
-                                <vibrancyEffect style="fill">
-                                    <blurEffect style="systemThickMaterial"/>
-                                </vibrancyEffect>
-                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="krc-TJ-1LD"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PDp-73-eRW" firstAttribute="top" secondItem="DH4-FW-wbU" secondAttribute="top" id="3Sc-hA-SXj"/>
-                            <constraint firstItem="krc-TJ-1LD" firstAttribute="trailing" secondItem="KX2-jW-zy7" secondAttribute="trailing" constant="8" id="6ik-2p-Ehp"/>
+                            <constraint firstItem="8wW-70-CIO" firstAttribute="top" secondItem="krc-TJ-1LD" secondAttribute="top" constant="12" id="Ngx-sg-qgy"/>
                             <constraint firstItem="krc-TJ-1LD" firstAttribute="bottom" secondItem="DE2-Gd-Nvi" secondAttribute="bottom" constant="24" id="Nor-Gn-Rjo"/>
+                            <constraint firstItem="krc-TJ-1LD" firstAttribute="trailing" secondItem="8wW-70-CIO" secondAttribute="trailing" constant="12" id="T7c-Fm-beY"/>
                             <constraint firstAttribute="bottom" secondItem="PDp-73-eRW" secondAttribute="bottom" id="bwJ-Zq-PO0"/>
+                            <constraint firstItem="8wW-70-CIO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="krc-TJ-1LD" secondAttribute="leading" constant="8" id="cvr-XL-MKz"/>
                             <constraint firstItem="DE2-Gd-Nvi" firstAttribute="centerX" secondItem="krc-TJ-1LD" secondAttribute="centerX" id="qg3-3G-QKP"/>
-                            <constraint firstItem="KX2-jW-zy7" firstAttribute="top" secondItem="krc-TJ-1LD" secondAttribute="top" id="sOV-fb-uEN"/>
                             <constraint firstItem="krc-TJ-1LD" firstAttribute="trailing" secondItem="PDp-73-eRW" secondAttribute="trailing" id="tEu-Ri-s2G"/>
                             <constraint firstItem="PDp-73-eRW" firstAttribute="leading" secondItem="krc-TJ-1LD" secondAttribute="leading" id="yVr-cz-lJk"/>
                         </constraints>
@@ -173,6 +162,7 @@
                                                 <constraint firstItem="B6Y-Zy-wJa" firstAttribute="centerY" secondItem="GfF-9u-d3W" secondAttribute="centerY" id="YYb-Of-NGQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -224,6 +214,7 @@
                                                 <constraint firstItem="Fuo-e1-BbY" firstAttribute="leading" secondItem="F2k-KS-7al" secondAttribute="trailing" constant="8" id="w7S-6b-zix"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gys-1u-FDU">
@@ -264,6 +255,7 @@
                                                 <constraint firstItem="lvr-KU-yPV" firstAttribute="centerX" secondItem="igT-qT-psc" secondAttribute="centerX" id="uPA-dK-Ha4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -309,6 +301,7 @@ NOTE: Testflight app does not support Google Geocoding. Google Maps API key must
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HbP-2V-asb" secondAttribute="trailing" constant="16" id="t0n-5X-KFG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
@@ -344,8 +337,14 @@ NOTE: Testflight app does not support Google Geocoding. Google Maps API key must
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
