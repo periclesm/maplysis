@@ -89,7 +89,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duf-KW-1FJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fmt-Ld-4Zu" userLabel="GetLocationAtTouchPoint">
                     <connections>
-                        <action selector="GetLocationAtTouchPoint:" destination="NMV-zz-eXE" id="cF0-nS-cvl"/>
+                        <action selector="getLocationAtTouchPoint:" destination="NMV-zz-eXE" id="cF0-nS-cvl"/>
                         <outlet property="delegate" destination="NMV-zz-eXE" id="tWU-SS-uWp"/>
                     </connections>
                 </pongPressGestureRecognizer>
@@ -150,7 +150,7 @@
                                                     <rect key="frame" x="270" y="9.6666666666666643" width="51" height="31"/>
                                                     <color key="onTintColor" systemColor="systemPurpleColor"/>
                                                     <connections>
-                                                        <action selector="SetContinuousUpdating" destination="0Pt-dQ-ju6" eventType="valueChanged" id="L6A-eA-ajH"/>
+                                                        <action selector="setContinuousUpdating" destination="0Pt-dQ-ju6" eventType="valueChanged" id="L6A-eA-ajH"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -184,7 +184,7 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="100" maxValue="10000" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2k-KS-7al">
                                                     <rect key="frame" x="42.666666666666671" y="52.333333333333336" width="234.66666666666663" height="31.666666666666664"/>
                                                     <connections>
-                                                        <action selector="SetMapZoomLevel" destination="0Pt-dQ-ju6" eventType="valueChanged" id="qo9-B5-LuV"/>
+                                                        <action selector="setMapZoomLevel" destination="0Pt-dQ-ju6" eventType="valueChanged" id="qo9-B5-LuV"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-18-V7U">
@@ -242,7 +242,7 @@
                                                     </segments>
                                                     <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
                                                     <connections>
-                                                        <action selector="SetMapType" destination="0Pt-dQ-ju6" eventType="valueChanged" id="ucV-8Y-A5q"/>
+                                                        <action selector="setMapType" destination="0Pt-dQ-ju6" eventType="valueChanged" id="ucV-8Y-A5q"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -288,7 +288,7 @@ NOTE: Testflight app does not support Google Geocoding. Google Maps API key must
                                                     </segments>
                                                     <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
                                                     <connections>
-                                                        <action selector="SetGeocoder" destination="0Pt-dQ-ju6" eventType="valueChanged" id="cmf-wC-iPy"/>
+                                                        <action selector="setGeocoder" destination="0Pt-dQ-ju6" eventType="valueChanged" id="cmf-wC-iPy"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -312,7 +312,7 @@ NOTE: Testflight app does not support Google Geocoding. Google Maps API key must
                         <barButtonItem key="rightBarButtonItem" id="day-pC-UE3">
                             <imageReference key="image" image="arrow.down.circle.fill" catalog="system"/>
                             <connections>
-                                <action selector="CloseAction" destination="0Pt-dQ-ju6" id="de9-KL-HmV"/>
+                                <action selector="closeAction" destination="0Pt-dQ-ju6" id="de9-KL-HmV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

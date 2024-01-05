@@ -88,7 +88,7 @@ class mapVC: UIViewController {
 		}
 	}
 	
-	@IBAction func GetLocationAtTouchPoint(_ gestureRecognizer: UILongPressGestureRecognizer) {
+	@IBAction func getLocationAtTouchPoint(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .ended {
             mapView.removeAnnotations((mapView?.annotations)!)
             

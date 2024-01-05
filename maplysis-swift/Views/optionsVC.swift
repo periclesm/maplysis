@@ -32,26 +32,26 @@ class optionsVC: UITableViewController {
 	
 	//MARK: - IBActions
 	
-	@IBAction func CloseAction() {
+	@IBAction func closeAction() {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
-	@IBAction func SetContinuousUpdating() {
+	@IBAction func setContinuousUpdating() {
         AppPreferences.shared.continuousUpdates = contLocSwitch.isOn
         continuousUpdates?(contLocSwitch.isOn)
 	}
 	
-	@IBAction func SetMapZoomLevel() {
+	@IBAction func setMapZoomLevel() {
         AppPreferences.shared.mapZoom = mZoomProgress.value
         locationUpdate?()
 	}
 	
-	@IBAction func SetMapType() {
+	@IBAction func setMapType() {
         AppPreferences.shared.mapType = MapType(rawValue: mapTypeSegm.selectedSegmentIndex)!
         mapTypeUpdate?()
 	}
 	
-	@IBAction func SetGeocoder() {
+	@IBAction func setGeocoder() {
         AppPreferences.shared.geocoder = GeocoderService(rawValue: geocoderSegm.selectedSegmentIndex)!
 	}
 }
