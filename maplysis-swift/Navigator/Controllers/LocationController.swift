@@ -14,7 +14,8 @@ import CoreLocation
 class LocationController: NSObject {
 
 	var mapDelegate: MapDelegate?
-	var locManager = CLLocationManager()
+    var location = Location()
+    var locManager = CLLocationManager()
 	var isUpdating = false
 	
 	override init() {
@@ -48,18 +49,18 @@ class LocationController: NSObject {
 		}
 	}
 	
-	func accuracyPermissions() {
-		switch locManager.accuracyAuthorization {
-		case .fullAccuracy:
-			break
-			
-		case .reducedAccuracy:
-			break
-			
-		default:
-			break
-		}
-	}
+//	func accuracyPermissions() {
+//		switch locManager.accuracyAuthorization {
+//		case .fullAccuracy:
+//			break
+//			
+//		case .reducedAccuracy:
+//			break
+//			
+//		default:
+//			break
+//		}
+//	}
 
 	//MARK: - Location Updates
 	
@@ -101,9 +102,8 @@ extension LocationController: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		print("location: \(String(describing: locations.last))");
 		
-		let linfo = Location.shared
-		linfo.resetLocation()
-		linfo.currentLocation = locations.last
+        location.resetLocation()
+        location.currentLocation = locations.last
 		
 		mapDelegate?.displayLocation()
 	}

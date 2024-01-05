@@ -93,9 +93,9 @@ class mapVC: UIViewController {
             mapView.removeAnnotations((mapView?.annotations)!)
             
             let touchPoint = longPress?.location(in: mapView)
-            Location.shared.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
+            locController.location.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
             
-            Annotator.displayAnnotation(Location.shared.currentLocation!, userSelected: true, sender: mapView!)
+            Annotator.displayAnnotation(locController.location.currentLocation!, userSelected: true, sender: mapView!)
         }
 	}
 }
@@ -105,12 +105,12 @@ extension mapVC: MapDelegate {
 	//MARK: - Location Display
 	
 	func displayLocation() {
-		mapView.removeAnnotations((mapView?.annotations)!)
+		mapView.removeAnnotations(mapView.annotations)
 		
-		RegionManager.getRegion(locationRegion: Location.shared.currentLocation!, sender: mapView!)
+		RegionManager.getRegion(locationRegion: locController.location.currentLocation!, sender: mapView)
 		
 		if !AppPreferences.shared.continuousUpdates {
-			Annotator.displayAnnotation(Location.shared.currentLocation!, userSelected: false, sender: mapView!)
+			Annotator.displayAnnotation(locController.location.currentLocation, userSelected: false, sender: mapView)
 		}
 	}
 	
