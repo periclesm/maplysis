@@ -12,7 +12,10 @@ import MapKit
 
 class Annotator: NSObject {
 	
-	class func displayAnnotation(_ locationCoord:CLLocation, userSelected: Bool, sender: MKMapView) {
+	class func displayAnnotation(_ locationCoord: CLLocation?, userSelected: Bool, sender: MKMapView) {
+        //If, for any reason, there is no location, just return...
+        guard let locationCoord else { return }
+        
 		let locAnnotation = MKPointAnnotation()
 		locAnnotation.coordinate = locationCoord.coordinate
 		
@@ -25,9 +28,10 @@ class Annotator: NSObject {
 		       
         switch AppPreferences.shared.geocoder {
         case .Apple:
-            print("Apple Geocoder")
+            print("Using Apple Geocoder")
             
-            AppleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
+            let aGeocoder = AppleGeocoder()
+            aGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
                 locAnnotation.subtitle = addressInfo?.formattedAddress
                 sender.addAnnotation(locAnnotation)
                 
@@ -36,10 +40,14 @@ class Annotator: NSObject {
                 }
             }
             
+            /*
+             This is not working. Check the comments in GoogleGeocoder, read the Google Maps API documentation, greate a Key using your account and 
+             */
         case .Google:
             print("Google Geocoder")
             
-            GoogleGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
+            let gGeocoder = GoogleGeocoder()
+            gGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
                 locAnnotation.subtitle = addressInfo
                 sender.addAnnotation(locAnnotation)
                 

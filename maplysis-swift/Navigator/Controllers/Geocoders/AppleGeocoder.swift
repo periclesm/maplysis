@@ -12,7 +12,8 @@ import UIKit
 import CoreLocation
 
 class AppleGeocoder: NSObject {
-    class func reverseGeocoder(location: CLLocation, completion: @escaping (Address?, Error?) -> ()) {
+    
+    func reverseGeocoder(location: CLLocation, completion: @escaping (Address?, Error?) -> ()) {
         CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
             if error != nil {
                 debugPrint(error!.localizedDescription)
@@ -31,7 +32,7 @@ class AppleGeocoder: NSObject {
         }
     }
     
-    class func geocoder(address: String, completion: @escaping (CLLocation?, Error?) -> ()) {
+    func geocoder(address: String, completion: @escaping (CLLocation?, Error?) -> ()) {
         CLGeocoder().geocodeAddressString(address) { (placemarks, error) in
             if error != nil {
                 debugPrint(error!.localizedDescription)

@@ -20,14 +20,13 @@ class GoogleGeocoder: NSObject {
      * ALSO NOTE: Since the introduction to the API Keys, this service will work only if you provide with a valid key. For obvious reasons, such key is not included here...
      */
     
-    class func reverseGeocoder(location: CLLocation, completion: @escaping (String?) -> ()) {
+    func reverseGeocoder(location: CLLocation, completion: @escaping (String?) -> ()) {
         DispatchQueue.main.async {
             let latString = "\(location.coordinate.latitude)"
             let lonString = "\(location.coordinate.longitude)"
             
-            //make sure you enter the correct API key for Google Geocoding API
-			let GMapsAPIKey: String = "" // <#T##Insert your Google API KEY here#>
-			let requestURLString = "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(latString),\(lonString)%key=\(GMapsAPIKey)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+            //make sure you enter the correct API key for Google Geocoding API in App Preferences
+            let requestURLString = "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(latString),\(lonString)&key=\(AppPreferences.shared.GMapsAPIKey)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
             
             let requestURL = URL(string: requestURLString!)
             
@@ -54,8 +53,8 @@ class GoogleGeocoder: NSObject {
                     }
                 }
             }
-            catch let err{
-                debugPrint("Error fetching data: \(err.localizedDescription)")
+            catch {
+                debugPrint("Error fetching data: \(error.localizedDescription)")
                 completion(nil)
             }
         }
@@ -68,7 +67,7 @@ class GoogleGeocoder: NSObject {
      * ALSO NOTE: Since the introduction to the API Keys, this service will work only if you provide with a valid key.
      */
     
-    class func geocoder(address: String, completion: @escaping (CLLocation?) -> ()) {
+    func geocoder(address: String, completion: @escaping (CLLocation?) -> ()) {
         DispatchQueue.main.async {
             let formattedAddressString = address.replacingOccurrences(of: " ", with: "+")
             
@@ -106,8 +105,8 @@ class GoogleGeocoder: NSObject {
                     }
                 }
             }
-            catch let err {
-                debugPrint("Error fetching data: \(err.localizedDescription)")
+            catch {
+                debugPrint("Error fetching data: \(error.localizedDescription)")
                 completion(nil)
             }
         }

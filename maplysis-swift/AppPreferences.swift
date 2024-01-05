@@ -24,6 +24,8 @@ class AppPreferences: NSObject {
     static var shared = AppPreferences()
     var defaults = UserDefaults.standard
     
+    let GMapsAPIKey: String = "" // <#T##Insert your Google API KEY here#>
+    
     var geocoder: GeocoderService {
         set {
 			defaults.set(newValue.rawValue, forKey: "Geocoder")
