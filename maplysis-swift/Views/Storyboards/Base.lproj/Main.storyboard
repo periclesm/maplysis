@@ -1,40 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kja-7M-o3Y">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NMV-zz-eXE">
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="Jrr-zs-AOd">
-            <objects>
-                <navigationController storyboardIdentifier="MainNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kja-7M-o3Y" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fAe-Zq-7XK">
-                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                            <color key="textColor" name="primaryForeground"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="-1300" vertical="0.0"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TV5-UI-pCB">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="NMV-zz-eXE" kind="relationship" relationship="rootViewController" id="o6X-QS-tFF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hRM-iH-K6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-164" y="74"/>
-        </scene>
         <!--Maplysis-->
         <scene sceneID="JTi-i0-oXO">
             <objects>
@@ -49,17 +24,39 @@
                                     <outletCollection property="gestureRecognizers" destination="fmt-Ld-4Zu" appends="YES" id="Ics-En-2Ns"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE2-Gd-Nvi">
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-70-CIO" userLabel="OptionsButton">
+                                <rect key="frame" x="328.66666666666669" y="62" width="34.333333333333314" height="34.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8wW-70-CIO" secondAttribute="height" multiplier="1:1" id="KkZ-xb-ES7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Wr7-a1-wo8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                    <backgroundConfiguration key="background" strokeWidth="1" strokeOutset="2">
+                                        <color key="strokeColor" systemColor="systemOrangeColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="7iz-JA-lIp" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="formSheet" id="1bB-9g-b9Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE2-Gd-Nvi" customClass="MALocationButton" customModule="maplysis_swift" customModuleProvider="target">
                                 <rect key="frame" x="159.66666666666666" y="698" width="56" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DE2-Gd-Nvi" secondAttribute="height" multiplier="1:1" id="0BA-v9-ajx"/>
                                     <constraint firstAttribute="width" constant="56" id="e19-Hi-lJV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="location.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <imageReference key="image" image="location" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    <backgroundConfiguration key="background" strokeWidth="2" strokeOutset="4">
+                                        <color key="strokeColor" systemColor="systemOrangeColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="GetCurrentLocation:" destination="NMV-zz-eXE" eventType="touchUpInside" id="4ah-Dw-e0h"/>
+                                    <action selector="updateLocation" destination="NMV-zz-eXE" eventType="touchUpInside" id="hpZ-QW-OYu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,8 +64,11 @@
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PDp-73-eRW" firstAttribute="top" secondItem="DH4-FW-wbU" secondAttribute="top" id="3Sc-hA-SXj"/>
+                            <constraint firstItem="8wW-70-CIO" firstAttribute="top" secondItem="krc-TJ-1LD" secondAttribute="top" constant="12" id="Ngx-sg-qgy"/>
                             <constraint firstItem="krc-TJ-1LD" firstAttribute="bottom" secondItem="DE2-Gd-Nvi" secondAttribute="bottom" constant="24" id="Nor-Gn-Rjo"/>
+                            <constraint firstItem="krc-TJ-1LD" firstAttribute="trailing" secondItem="8wW-70-CIO" secondAttribute="trailing" constant="12" id="T7c-Fm-beY"/>
                             <constraint firstAttribute="bottom" secondItem="PDp-73-eRW" secondAttribute="bottom" id="bwJ-Zq-PO0"/>
+                            <constraint firstItem="8wW-70-CIO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="krc-TJ-1LD" secondAttribute="leading" constant="8" id="cvr-XL-MKz"/>
                             <constraint firstItem="DE2-Gd-Nvi" firstAttribute="centerX" secondItem="krc-TJ-1LD" secondAttribute="centerX" id="qg3-3G-QKP"/>
                             <constraint firstItem="krc-TJ-1LD" firstAttribute="trailing" secondItem="PDp-73-eRW" secondAttribute="trailing" id="tEu-Ri-s2G"/>
                             <constraint firstItem="PDp-73-eRW" firstAttribute="leading" secondItem="krc-TJ-1LD" secondAttribute="leading" id="yVr-cz-lJk"/>
@@ -78,10 +78,6 @@
                     <navigationItem key="navigationItem" title="Maplysis" id="Xag-V6-aCm">
                         <barButtonItem key="rightBarButtonItem" id="mZE-8f-eOm">
                             <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="default"/>
-                            <color key="tintColor" name="primaryForeground"/>
-                            <connections>
-                                <segue destination="7iz-JA-lIp" kind="presentation" modalPresentationStyle="pageSheet" id="R9z-PL-MVJ"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -93,7 +89,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duf-KW-1FJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fmt-Ld-4Zu" userLabel="GetLocationAtTouchPoint">
                     <connections>
-                        <action selector="GetLocationAtTouchPoint:" destination="NMV-zz-eXE" id="cF0-nS-cvl"/>
+                        <action selector="getLocationAtTouchPoint:" destination="NMV-zz-eXE" id="cF0-nS-cvl"/>
                         <outlet property="delegate" destination="NMV-zz-eXE" id="tWU-SS-uWp"/>
                     </connections>
                 </pongPressGestureRecognizer>
@@ -104,14 +100,16 @@
         <scene sceneID="Ct2-fA-GIz">
             <objects>
                 <navigationController storyboardIdentifier="SecNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7iz-JA-lIp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VpM-SK-mRk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VpM-SK-mRk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemPurpleColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                            <color key="textColor" name="primaryForeground"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="-1300" vertical="0.0"/>
+                            <color key="textColor" systemColor="systemPurpleColor"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="-3000" vertical="0.0"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" systemColor="systemPurpleColor"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -132,11 +130,11 @@
                         <viewLayoutGuide key="safeArea" id="UHY-wW-Gvu"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Options" id="zFm-1Z-dBy">
+                            <tableViewSection headerTitle="Updates" id="zFm-1Z-dBy">
                                 <string key="footerTitle">When the setting is off, the device will ask once for the current location. Otherwise, it will request location updates at timed intervals and will stop by pressing the location button again.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="Xeo-Zg-SNN">
-                                        <rect key="frame" x="20" y="55.333332061767578" width="335" height="50"/>
+                                        <rect key="frame" x="20" y="38" width="335" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xeo-Zg-SNN" id="4UP-Xd-IAZ">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -150,8 +148,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GfF-9u-d3W">
                                                     <rect key="frame" x="270" y="9.6666666666666643" width="51" height="31"/>
+                                                    <color key="onTintColor" systemColor="systemPurpleColor"/>
                                                     <connections>
-                                                        <action selector="SetContiniousUpdating" destination="0Pt-dQ-ju6" eventType="valueChanged" id="L6A-eA-ajH"/>
+                                                        <action selector="setContinuousUpdating" destination="0Pt-dQ-ju6" eventType="valueChanged" id="L6A-eA-ajH"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -163,13 +162,14 @@
                                                 <constraint firstItem="B6Y-Zy-wJa" firstAttribute="centerY" secondItem="GfF-9u-d3W" secondAttribute="centerY" id="YYb-Of-NGQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Map" footerTitle="Map options in setting a max zoom level and selecting the map display type." id="jYZ-jS-R0p">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wiv-xR-RsO">
-                                        <rect key="frame" x="20" y="228.66666030883789" width="335" height="91.333335876464844"/>
+                                        <rect key="frame" x="20" y="211.33333015441895" width="335" height="91.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wiv-xR-RsO" id="di4-9S-vUE">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="91.333335876464844"/>
@@ -181,10 +181,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="300" minValue="100" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="F2k-KS-7al">
-                                                    <rect key="frame" x="42.666666666666671" y="52.333333333333336" width="242.33333333333331" height="31.666666666666664"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="100" maxValue="10000" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2k-KS-7al">
+                                                    <rect key="frame" x="42.666666666666671" y="52.333333333333336" width="234.66666666666663" height="31.666666666666664"/>
                                                     <connections>
-                                                        <action selector="SetMapZoomLevel" destination="0Pt-dQ-ju6" eventType="valueChanged" id="qRz-Vn-fS0"/>
+                                                        <action selector="setMapZoomLevel" destination="0Pt-dQ-ju6" eventType="valueChanged" id="qo9-B5-LuV"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-18-V7U">
@@ -193,8 +193,8 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuo-e1-BbY">
-                                                    <rect key="frame" x="291" y="60.666666666666657" width="28" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuo-e1-BbY">
+                                                    <rect key="frame" x="283.33333333333331" y="60.666666666666657" width="35.666666666666686" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -214,10 +214,11 @@
                                                 <constraint firstItem="Fuo-e1-BbY" firstAttribute="leading" secondItem="F2k-KS-7al" secondAttribute="trailing" constant="8" id="w7S-6b-zix"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gys-1u-FDU">
-                                        <rect key="frame" x="20" y="319.99999618530273" width="335" height="99.666664123535156"/>
+                                        <rect key="frame" x="20" y="302.66666603088379" width="335" height="99.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gys-1u-FDU" id="igT-qT-psc">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="99.666664123535156"/>
@@ -229,18 +230,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lvr-KU-yPV">
-                                                    <rect key="frame" x="57.666666666666657" y="52.333333333333336" width="219.99999999999997" height="32.333333333333321"/>
+                                                <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lvr-KU-yPV" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
+                                                    <rect key="frame" x="37.666666666666657" y="52.333333333333336" width="260" height="32.333333333333321"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="owR-IS-fBE"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="owR-IS-fBE"/>
                                                     </constraints>
                                                     <segments>
-                                                        <segment title="Map"/>
+                                                        <segment title="Standard"/>
                                                         <segment title="Satellite"/>
                                                         <segment title="Hybrid"/>
                                                     </segments>
+                                                    <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
                                                     <connections>
-                                                        <action selector="SetMapType" destination="0Pt-dQ-ju6" eventType="valueChanged" id="ucV-8Y-A5q"/>
+                                                        <action selector="setMapType" destination="0Pt-dQ-ju6" eventType="valueChanged" id="ucV-8Y-A5q"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -253,14 +255,17 @@
                                                 <constraint firstItem="lvr-KU-yPV" firstAttribute="centerX" secondItem="igT-qT-psc" secondAttribute="centerX" id="uPA-dK-Ha4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Geocoding" id="sW1-K9-iOi">
-                                <string key="footerTitle">Resolving location coordinates from address (geocoding) or the address from coordinates (reverse geocoding) using a specific service.</string>
+                                <string key="footerTitle">Resolving location coordinates from address (geocoding) or the address from coordinates (reverse geocoding) using a specific service.
+
+NOTE: Testflight app does not support Google Geocoding. Google Maps API key must be added in code and rebuild the app to enable.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dHN-Yf-ku8">
-                                        <rect key="frame" x="20" y="510.99999237060547" width="335" height="100"/>
+                                        <rect key="frame" x="20" y="493.66666221618652" width="335" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dHN-Yf-ku8" id="Vob-Fx-2FY">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
@@ -272,7 +277,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
                                                     <rect key="frame" x="87.666666666666686" y="52.666666666666664" width="160" height="32.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="8HC-iQ-NxD"/>
@@ -281,8 +286,9 @@
                                                         <segment title="Apple"/>
                                                         <segment title="Google"/>
                                                     </segments>
+                                                    <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
                                                     <connections>
-                                                        <action selector="SetGeocoder" destination="0Pt-dQ-ju6" eventType="valueChanged" id="cmf-wC-iPy"/>
+                                                        <action selector="setGeocoder" destination="0Pt-dQ-ju6" eventType="valueChanged" id="cmf-wC-iPy"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -295,6 +301,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HbP-2V-asb" secondAttribute="trailing" constant="16" id="t0n-5X-KFG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
@@ -303,10 +310,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Options" id="2xW-8H-rct">
                         <barButtonItem key="rightBarButtonItem" id="day-pC-UE3">
-                            <imageReference key="image" image="arrow.down.circle.fill" catalog="system" symbolScale="default"/>
-                            <color key="tintColor" name="primaryForeground"/>
+                            <imageReference key="image" image="arrow.down.circle.fill" catalog="system"/>
                             <connections>
-                                <action selector="CloseAction" destination="0Pt-dQ-ju6" id="de9-KL-HmV"/>
+                                <action selector="closeAction" destination="0Pt-dQ-ju6" id="de9-KL-HmV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -322,16 +328,23 @@
             <point key="canvasLocation" x="1535" y="835"/>
         </scene>
     </scenes>
-    <color key="tintColor" name="primaryForeground"/>
+    <color key="tintColor" systemColor="systemPurpleColor"/>
     <resources>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="location" catalog="system" width="128" height="119"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
-        <namedColor name="primaryForeground">
-            <color red="0.74901960784313726" green="0.35294117647058826" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

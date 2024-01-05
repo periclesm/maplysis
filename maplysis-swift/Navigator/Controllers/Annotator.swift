@@ -31,7 +31,7 @@ class Annotator: NSObject {
                 locAnnotation.subtitle = addressInfo?.formattedAddress
                 sender.addAnnotation(locAnnotation)
                 
-                if !AppPreferences.shared.continiousUpdates {
+                if !AppPreferences.shared.continuousUpdates {
                     sender.selectAnnotation(locAnnotation, animated: true)
                 }
             }
@@ -43,7 +43,7 @@ class Annotator: NSObject {
                 locAnnotation.subtitle = addressInfo
                 sender.addAnnotation(locAnnotation)
                 
-                if !AppPreferences.shared.continiousUpdates {
+                if !AppPreferences.shared.continuousUpdates {
                     sender.selectAnnotation(locAnnotation, animated: true)
                 }
             }

@@ -16,11 +16,15 @@ class optionsVC: UITableViewController {
 	@IBOutlet weak var mZoomProgress: UISlider!
 	@IBOutlet weak var mapTypeSegm: UISegmentedControl!
 	@IBOutlet weak var geocoderSegm: UISegmentedControl!
+    
+    var continuousUpdates: ((Bool) -> Void)?
+    var mapTypeUpdate: (() -> Void)?
+    var locationUpdate: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-        contLocSwitch.isOn = AppPreferences.shared.continiousUpdates
+        contLocSwitch.isOn = AppPreferences.shared.continuousUpdates
         mZoomProgress.value = AppPreferences.shared.mapZoom
         mapTypeSegm.selectedSegmentIndex = AppPreferences.shared.mapType.rawValue
         geocoderSegm.selectedSegmentIndex = AppPreferences.shared.geocoder.rawValue
@@ -28,23 +32,26 @@ class optionsVC: UITableViewController {
 	
 	//MARK: - IBActions
 	
-	@IBAction func CloseAction() {
+	@IBAction func closeAction() {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
-	@IBAction func SetContiniousUpdating() {
-        AppPreferences.shared.continiousUpdates = contLocSwitch.isOn
+	@IBAction func setContinuousUpdating() {
+        AppPreferences.shared.continuousUpdates = contLocSwitch.isOn
+        continuousUpdates?(contLocSwitch.isOn)
 	}
 	
-	@IBAction func SetMapZoomLevel() {
+	@IBAction func setMapZoomLevel() {
         AppPreferences.shared.mapZoom = mZoomProgress.value
+        locationUpdate?()
 	}
 	
-	@IBAction func SetMapType() {
+	@IBAction func setMapType() {
         AppPreferences.shared.mapType = MapType(rawValue: mapTypeSegm.selectedSegmentIndex)!
+        mapTypeUpdate?()
 	}
 	
-	@IBAction func SetGeocoder() {
+	@IBAction func setGeocoder() {
         AppPreferences.shared.geocoder = GeocoderService(rawValue: geocoderSegm.selectedSegmentIndex)!
 	}
 }

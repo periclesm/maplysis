@@ -18,7 +18,7 @@ protocol MapDelegate {
 
 class mapVC: UIViewController {
 	
-	@IBOutlet weak var locationButton: UIButton!
+	@IBOutlet weak var locationButton: MALocationButton!
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var longPress: UIGestureRecognizer!
 	
@@ -29,59 +29,73 @@ class mapVC: UIViewController {
 
 		locController.mapDelegate = self
 		locController.locationPermissions()
-
-		locationButton.layer.cornerRadius = locationButton.bounds.size.width / 2
+        locController.stopLocationUpdates()
+        
+        locationButton.setState(state: .standard)
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-        self.setmapType(type: AppPreferences.shared.mapType)
-		super.viewWillAppear(true)
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		locController.stopLocationUpdates()
-		super.viewWillDisappear(true)
-	}
 
-	func setmapType(type: MapType) {
-		switch type {
-		case .satellite:
-			mapView.mapType = .satellite
-
-		case .hybrid:
-			mapView.mapType = .hybrid
-
-		case .map:
-			mapView.mapType = .standard
-		}
-	}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OptionsSegue" {
+            let dnav = segue.destination as! UINavigationController
+            let dvc = dnav.viewControllers.first as! optionsVC
+            optionsCallbacks(dvc)
+        }
+    }
+    
+    func setmapType(type: MapType) {
+        switch type {
+        case .standard:
+            mapView.mapType = .standard
+        case .satellite:
+            mapView.mapType = .satellite
+        case .hybrid:
+            mapView.mapType = .hybrid
+        }
+    }
+    
+    //MARK: - Callback Methods
+    
+    func optionsCallbacks(_ dvc: optionsVC) {
+        dvc.mapTypeUpdate = {
+            self.setmapType(type: AppPreferences.shared.mapType)
+        }
+        
+        dvc.locationUpdate = {
+            self.displayLocation()
+        }
+        
+        dvc.continuousUpdates = { enabled in
+            self.updateLocation()
+        }
+    }
 	
 	//MARK: - IBActions
 	
-	@IBAction func GetCurrentLocation(_ sender: Any) {
-		if !AppPreferences.shared.continiousUpdates {
-			locController.getCurrentLocation()
+	@IBAction func updateLocation() {
+		if AppPreferences.shared.continuousUpdates {
+            if locController.isUpdating {
+                locController.stopLocationUpdates()
+                locationButton.setState(state: .continuousOFF)
+            }
+            else {
+                locController.startLocationUpdates()
+                locationButton.setState(state: .continuousON)
+            }
 		}
 		else {
-			if locController.isUpdating {
-				locController.stopLocationUpdates()
-				locationButton?.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
-			}
-			else {
-				locController.startLocationUpdates()
-				locationButton?.tintColor = UIColor .green
-			}
+            locController.getCurrentLocation()
+            locationButton.setState(state: .standard)
 		}
 	}
 	
-	@IBAction func GetLocationAtTouchPoint(_ gestureRecognizer: UILongPressGestureRecognizer) {
+	@IBAction func getLocationAtTouchPoint(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .ended {
             mapView.removeAnnotations((mapView?.annotations)!)
             
             let touchPoint = longPress?.location(in: mapView)
-            LocationInfo.shared.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
+            Location.shared.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
             
-            Annotator.displayAnnotation(LocationInfo.shared.currentLocation!, userSelected: true, sender: mapView!)
+            Annotator.displayAnnotation(Location.shared.currentLocation!, userSelected: true, sender: mapView!)
         }
 	}
 }
@@ -93,10 +107,10 @@ extension mapVC: MapDelegate {
 	func displayLocation() {
 		mapView.removeAnnotations((mapView?.annotations)!)
 		
-		RegionManager.getRegion(locationRegion: LocationInfo.shared.currentLocation!, sender: mapView!)
+		RegionManager.getRegion(locationRegion: Location.shared.currentLocation!, sender: mapView!)
 		
-		if !AppPreferences.shared.continiousUpdates {
-			Annotator.displayAnnotation(LocationInfo.shared.currentLocation!, userSelected: false, sender: mapView!)
+		if !AppPreferences.shared.continuousUpdates {
+			Annotator.displayAnnotation(Location.shared.currentLocation!, userSelected: false, sender: mapView!)
 		}
 	}
 	
