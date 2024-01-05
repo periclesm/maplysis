@@ -24,17 +24,19 @@
                                     <outletCollection property="gestureRecognizers" destination="fmt-Ld-4Zu" appends="YES" id="Ics-En-2Ns"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE2-Gd-Nvi">
+                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE2-Gd-Nvi" customClass="MALocationButton" customModule="maplysis_swift" customModuleProvider="target">
                                 <rect key="frame" x="159.66666666666666" y="698" width="56" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DE2-Gd-Nvi" secondAttribute="height" multiplier="1:1" id="0BA-v9-ajx"/>
                                     <constraint firstAttribute="width" constant="56" id="e19-Hi-lJV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="location.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <imageReference key="image" image="location" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="GetCurrentLocation:" destination="NMV-zz-eXE" eventType="touchUpInside" id="4ah-Dw-e0h"/>
+                                    <action selector="updateLocation" destination="NMV-zz-eXE" eventType="touchUpInside" id="hpZ-QW-OYu"/>
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KX2-jW-zy7">
@@ -43,12 +45,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-70-CIO">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-70-CIO">
                                             <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system"/>
+                                            <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                                <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                                            </buttonConfiguration>
                                             <connections>
-                                                <segue destination="7iz-JA-lIp" kind="presentation" modalPresentationStyle="pageSheet" id="1bB-9g-b9Y"/>
+                                                <segue destination="7iz-JA-lIp" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="pageSheet" id="1bB-9g-b9Y"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -64,7 +68,7 @@
                                     <constraint firstAttribute="width" constant="48" id="o9u-2N-lpb"/>
                                 </constraints>
                                 <vibrancyEffect style="fill">
-                                    <blurEffect style="systemUltraThinMaterial"/>
+                                    <blurEffect style="systemThickMaterial"/>
                                 </vibrancyEffect>
                             </visualEffectView>
                         </subviews>
@@ -112,9 +116,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="systemPurpleColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                             <color key="textColor" systemColor="systemPurpleColor"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="-1300" vertical="0.0"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="-3000" vertical="0.0"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" systemColor="systemPurpleColor"/>
@@ -158,7 +161,7 @@
                                                     <rect key="frame" x="270" y="9.6666666666666643" width="51" height="31"/>
                                                     <color key="onTintColor" systemColor="systemPurpleColor"/>
                                                     <connections>
-                                                        <action selector="SetContiniousUpdating" destination="0Pt-dQ-ju6" eventType="valueChanged" id="L6A-eA-ajH"/>
+                                                        <action selector="SetContinuousUpdating" destination="0Pt-dQ-ju6" eventType="valueChanged" id="L6A-eA-ajH"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -265,7 +268,9 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Geocoding" id="sW1-K9-iOi">
-                                <string key="footerTitle">Resolving location coordinates from address (geocoding) or the address from coordinates (reverse geocoding) using a specific service.</string>
+                                <string key="footerTitle">Resolving location coordinates from address (geocoding) or the address from coordinates (reverse geocoding) using a specific service.
+
+NOTE: Testflight app does not support Google Geocoding. Google Maps API key must be added in code and rebuild the app to enable.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dHN-Yf-ku8">
                                         <rect key="frame" x="20" y="493.66666221618652" width="335" height="100"/>
@@ -280,7 +285,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
                                                     <rect key="frame" x="87.666666666666686" y="52.666666666666664" width="160" height="32.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="8HC-iQ-NxD"/>
@@ -312,7 +317,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Options" id="2xW-8H-rct">
                         <barButtonItem key="rightBarButtonItem" id="day-pC-UE3">
-                            <imageReference key="image" image="arrow.down.circle.fill" catalog="system" symbolScale="default"/>
+                            <imageReference key="image" image="arrow.down.circle.fill" catalog="system"/>
                             <connections>
                                 <action selector="CloseAction" destination="0Pt-dQ-ju6" id="de9-KL-HmV"/>
                             </connections>
@@ -330,14 +335,12 @@
             <point key="canvasLocation" x="1535" y="835"/>
         </scene>
     </scenes>
-    <color key="tintColor" name="primaryForeground"/>
+    <color key="tintColor" systemColor="systemPurpleColor"/>
     <resources>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="location" catalog="system" width="128" height="119"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
-        <namedColor name="primaryForeground">
-            <color red="0.74901960784313726" green="0.35294117647058826" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

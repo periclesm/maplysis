@@ -38,14 +38,14 @@ class AppPreferences: NSObject {
         }
     }
     
-    var continiousUpdates: Bool {
+    var continuousUpdates: Bool {
         set {
-			defaults.set(newValue, forKey: "ContiniousLocation")
+			defaults.set(newValue, forKey: "ContinuousLocation")
 			
 		}
         get {
-            if defaults.object(forKey: "ContiniousLocation") != nil {
-                return defaults.bool(forKey: "ContiniousLocation")
+            if defaults.object(forKey: "ContinuousLocation") != nil {
+                return defaults.bool(forKey: "ContinuousLocation")
             }
             else {
                 return false

@@ -18,7 +18,7 @@ protocol MapDelegate {
 
 class mapVC: UIViewController {
 	
-	@IBOutlet weak var locationButton: UIButton!
+	@IBOutlet weak var locationButton: MALocationButton!
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var longPress: UIGestureRecognizer!
 	
@@ -30,25 +30,15 @@ class mapVC: UIViewController {
 		locController.mapDelegate = self
 		locController.locationPermissions()
         locController.stopLocationUpdates()
-
-		locationButton.layer.cornerRadius = locationButton.bounds.size.width / 2
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        locController.stopLocationUpdates()
+        
+        locationButton.setState(state: .standard)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OptionsSegue" {
             let dnav = segue.destination as! UINavigationController
             let dvc = dnav.viewControllers.first as! optionsVC
-            dvc.mapTypeUpdate = {
-                self.setmapType(type: AppPreferences.shared.mapType)
-            }
-            dvc.locationUpdate = {
-                self.displayLocation()
-            }
+            optionsCallbacks(dvc)
         }
     }
     
@@ -62,22 +52,39 @@ class mapVC: UIViewController {
             mapView.mapType = .hybrid
         }
     }
+    
+    //MARK: - Callback Methods
+    
+    func optionsCallbacks(_ dvc: optionsVC) {
+        dvc.mapTypeUpdate = {
+            self.setmapType(type: AppPreferences.shared.mapType)
+        }
+        
+        dvc.locationUpdate = {
+            self.displayLocation()
+        }
+        
+        dvc.continuousUpdates = { enabled in
+            self.updateLocation()
+        }
+    }
 	
 	//MARK: - IBActions
 	
-	@IBAction func GetCurrentLocation(_ sender: Any) {
-		if !AppPreferences.shared.continiousUpdates {
-			locController.getCurrentLocation()
+	@IBAction func updateLocation() {
+		if AppPreferences.shared.continuousUpdates {
+            if locController.isUpdating {
+                locController.stopLocationUpdates()
+                locationButton.setState(state: .continuousOFF)
+            }
+            else {
+                locController.startLocationUpdates()
+                locationButton.setState(state: .continuousON)
+            }
 		}
 		else {
-			if locController.isUpdating {
-				locController.stopLocationUpdates()
-				locationButton?.tintColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
-			}
-			else {
-				locController.startLocationUpdates()
-				locationButton?.tintColor = UIColor .green
-			}
+            locController.getCurrentLocation()
+            locationButton.setState(state: .standard)
 		}
 	}
 	
@@ -102,7 +109,7 @@ extension mapVC: MapDelegate {
 		
 		RegionManager.getRegion(locationRegion: Location.shared.currentLocation!, sender: mapView!)
 		
-		if !AppPreferences.shared.continiousUpdates {
+		if !AppPreferences.shared.continuousUpdates {
 			Annotator.displayAnnotation(Location.shared.currentLocation!, userSelected: false, sender: mapView!)
 		}
 	}

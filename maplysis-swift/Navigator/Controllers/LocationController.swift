@@ -69,8 +69,8 @@ class LocationController: NSObject {
 	}
 	
 	func startLocationUpdates() {
+        locManager.startUpdatingLocation()
 		isUpdating = true;
-		locManager.startUpdatingLocation()
 	}
 	
 	func stopLocationUpdates() {

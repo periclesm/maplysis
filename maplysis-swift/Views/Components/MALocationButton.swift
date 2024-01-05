@@ -11,11 +11,27 @@ import UIKit
 class MALocationButton: UIButton {
 
     enum LocationState {
-        case standard, continiousOFF, continiousON
+        case standard, continuousOFF, continuousON
     }
     
-    func setState() {
+    /*
+     Location Continuous: Filled Location Icon with SystemTeal when On and SystemPurple when Off
+     Non-Continuous: Outlined Location Icon with SystemPurple Background
+     */
+    
+    func setState(state: LocationState) {
+        switch state {
+        case .standard: 
+            self.tintColor = .systemPurple
+            self.setImage(UIImage(systemName: "location"), for: .normal)
         
+        case .continuousOFF: 
+            self.tintColor = .systemPurple
+            self.setImage(UIImage(systemName: "location.fill"), for: .normal)
+            
+        case .continuousON: 
+            self.tintColor = .systemTeal
+            self.setImage(UIImage(systemName: "location.fill"), for: .normal)
+        }
     }
-
 }
