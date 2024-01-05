@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kja-7M-o3Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kja-7M-o3Y">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                             <color key="textColor" name="primaryForeground"/>
                             <offsetWrapper key="textShadowOffset" horizontal="-1300" vertical="0.0"/>
                         </textAttributes>
@@ -77,7 +77,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Maplysis" id="Xag-V6-aCm">
                         <barButtonItem key="rightBarButtonItem" id="mZE-8f-eOm">
-                            <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                            <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="default"/>
                             <color key="tintColor" name="primaryForeground"/>
                             <connections>
                                 <segue destination="7iz-JA-lIp" kind="presentation" modalPresentationStyle="pageSheet" id="R9z-PL-MVJ"/>
@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                             <color key="textColor" name="primaryForeground"/>
                             <offsetWrapper key="textShadowOffset" horizontal="-1300" vertical="0.0"/>
                         </textAttributes>
@@ -303,7 +303,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Options" id="2xW-8H-rct">
                         <barButtonItem key="rightBarButtonItem" id="day-pC-UE3">
-                            <imageReference key="image" image="arrow.down.circle.fill" catalog="system" symbolScale="large"/>
+                            <imageReference key="image" image="arrow.down.circle.fill" catalog="system" symbolScale="default"/>
                             <color key="tintColor" name="primaryForeground"/>
                             <connections>
                                 <action selector="CloseAction" destination="0Pt-dQ-ju6" id="de9-KL-HmV"/>

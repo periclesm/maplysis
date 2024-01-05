@@ -31,7 +31,6 @@ struct AddressInfo {
 }
 
 class AppleGeocoder: NSObject {
-    
     class func reverseGeocoder(location: CLLocation, completion: @escaping (AddressInfo?, Error?) -> ()) {
         CLGeocoder().reverseGeocodeLocation(location) { (placemarks, err) in
             if err != nil {

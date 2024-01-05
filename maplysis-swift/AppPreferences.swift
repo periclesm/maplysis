@@ -27,7 +27,6 @@ class AppPreferences: NSObject {
     var geocoder: GeocoderService {
         set {
 			defaults.set(newValue.rawValue, forKey: "Geocoder")
-			
 		}
         get {
             if defaults.object(forKey: "Geocoder") != nil {
