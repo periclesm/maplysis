@@ -11,6 +11,7 @@ import UIKit
 enum GeocoderService: Int {
     case Apple = 0
     case Google
+    case Bing
 }
 
 enum MapType: Int {

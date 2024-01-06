@@ -22,9 +22,11 @@
 		6858E05D1F093364008FDFD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6858E05B1F093364008FDFD7 /* LaunchScreen.storyboard */; };
 		6858E0661F0933A9008FDFD7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6858E0651F0933A9008FDFD7 /* MapKit.framework */; };
 		68CCE62C23E31DF500B5F2B4 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CCE62B23E31DF500B5F2B4 /* AppPreferences.swift */; };
+		E8402C9D2B49473A0031B76B /* BingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8402C9C2B49473A0031B76B /* BingResponse.swift */; };
 		E861D42F2B47F440001028CE /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861D42E2B47F440001028CE /* Address.swift */; };
 		E861D4332B47FF8A001028CE /* MALocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861D4322B47FF8A001028CE /* MALocationButton.swift */; };
 		E861D4352B480BEE001028CE /* MASegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861D4342B480BEE001028CE /* MASegmentedControl.swift */; };
+		E8D742122B4936C70062A2F7 /* BingGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D742112B4936C70062A2F7 /* BingGeocoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +47,11 @@
 		6858E05E1F093364008FDFD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6858E0651F0933A9008FDFD7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		68CCE62B23E31DF500B5F2B4 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
+		E8402C9C2B49473A0031B76B /* BingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingResponse.swift; sourceTree = "<group>"; };
 		E861D42E2B47F440001028CE /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		E861D4322B47FF8A001028CE /* MALocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALocationButton.swift; sourceTree = "<group>"; };
 		E861D4342B480BEE001028CE /* MASegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASegmentedControl.swift; sourceTree = "<group>"; };
+		E8D742112B4936C70062A2F7 /* BingGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingGeocoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			children = (
 				683E1D8D23E0844A0096BBC7 /* AppleGeocoder.swift */,
 				683E1D8F23E084D30096BBC7 /* GoogleGeocoder.swift */,
+				E8D742112B4936C70062A2F7 /* BingGeocoder.swift */,
 			);
 			path = Geocoders;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				682ED14E1F0B77240075F0DB /* Location.swift */,
 				E861D42E2B47F440001028CE /* Address.swift */,
+				E8402C9C2B49473A0031B76B /* BingResponse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 				682ED1541F0B77240075F0DB /* Annotator.swift in Sources */,
 				682ED1561F0B77240075F0DB /* LocationController.swift in Sources */,
 				682ED1581F0B77240075F0DB /* RegionManager.swift in Sources */,
+				E8402C9D2B49473A0031B76B /* BingResponse.swift in Sources */,
 				683E1D8E23E0844A0096BBC7 /* AppleGeocoder.swift in Sources */,
 				682ED1591F0B77240075F0DB /* mapVC.swift in Sources */,
 				682ED1571F0B77240075F0DB /* Location.swift in Sources */,
@@ -256,6 +263,7 @@
 				E861D42F2B47F440001028CE /* Address.swift in Sources */,
 				E861D4352B480BEE001028CE /* MASegmentedControl.swift in Sources */,
 				68CCE62C23E31DF500B5F2B4 /* AppPreferences.swift in Sources */,
+				E8D742122B4936C70062A2F7 /* BingGeocoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

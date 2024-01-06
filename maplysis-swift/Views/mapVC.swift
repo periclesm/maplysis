@@ -95,7 +95,9 @@ class mapVC: UIViewController {
             let touchPoint = longPress?.location(in: mapView)
             locController.location.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
             
-            Annotator.displayAnnotation(locController.location.currentLocation!, userSelected: true, sender: mapView!)
+            Task(priority: .medium) {
+                await Annotator.displayAnnotation(locController.location.currentLocation!, userSelected: true, sender: mapView!)
+            }
         }
 	}
 }
@@ -110,7 +112,9 @@ extension mapVC: MapDelegate {
 		RegionManager.getRegion(locationRegion: locController.location.currentLocation!, sender: mapView)
 		
 		if !AppPreferences.shared.continuousUpdates {
-			Annotator.displayAnnotation(locController.location.currentLocation, userSelected: false, sender: mapView)
+            Task(priority: .medium) {
+                await Annotator.displayAnnotation(locController.location.currentLocation, userSelected: false, sender: mapView)
+            }
 		}
 	}
 	

@@ -12,7 +12,7 @@ import MapKit
 
 class Annotator: NSObject {
 	
-	class func displayAnnotation(_ locationCoord: CLLocation?, userSelected: Bool, sender: MKMapView) {
+	class func displayAnnotation(_ locationCoord: CLLocation?, userSelected: Bool, sender: MKMapView) async {
         //If, for any reason, there is no location, just return...
         guard let locationCoord else { return }
         
@@ -28,33 +28,41 @@ class Annotator: NSObject {
 		       
         switch AppPreferences.shared.geocoder {
         case .Apple:
-            print("Using Apple Geocoder")
+            debugPrint("Using Apple Geocoding")
             
-            let aGeocoder = AppleGeocoder()
-            aGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
-                locAnnotation.subtitle = addressInfo?.formattedAddress
-                sender.addAnnotation(locAnnotation)
-                
-                if !AppPreferences.shared.continuousUpdates {
-                    sender.selectAnnotation(locAnnotation, animated: true)
-                }
-            }
+//            let aGeocoder = AppleGeocoder()
+//            aGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
+//                locAnnotation.subtitle = addressInfo?.formattedAddress
+//                await sender.addAnnotation(locAnnotation)
+//                
+//                if !AppPreferences.shared.continuousUpdates {
+//                    await sender.selectAnnotation(locAnnotation, animated: true)
+//                }
+//            }
             
             /*
              This is not working. Check the comments in GoogleGeocoder, read the Google Maps API documentation, greate a Key using your account and 
              */
         case .Google:
-            print("Google Geocoder")
+            debugPrint("Using Google Geocoding")
             
-            let gGeocoder = GoogleGeocoder()
-            gGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
-                locAnnotation.subtitle = addressInfo
-                sender.addAnnotation(locAnnotation)
-                
-                if !AppPreferences.shared.continuousUpdates {
-                    sender.selectAnnotation(locAnnotation, animated: true)
-                }
-            }
+//            let gGeocoder = GoogleGeocoder()
+//            gGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
+//                locAnnotation.subtitle = addressInfo
+//                sender.addAnnotation(locAnnotation)
+//                
+//                if !AppPreferences.shared.continuousUpdates {
+//                    sender.selectAnnotation(locAnnotation, animated: true)
+//                }
+//            }
+            
+        case .Bing:
+            debugPrint("Using Bing Maps Geocoding ")
+            
+            let bmGeocoder = BingGeocoder()
+            let address = await bmGeocoder.reverseGeocoder(location: locationCoord)
+            locAnnotation.subtitle = address
+            await sender.addAnnotation(locAnnotation)
         }
 	}
 }

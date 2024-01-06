@@ -277,7 +277,7 @@ NOTE: Testflight app does not support Google Geocoding. Google Maps API key must
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
                                                     <rect key="frame" x="87.666666666666686" y="52.666666666666664" width="160" height="32.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="8HC-iQ-NxD"/>
