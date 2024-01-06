@@ -61,7 +61,7 @@ class Annotator: NSObject {
             #warning ("check for error in Bing")
         }
         
-        annotation.subtitle = "\(coordinates.coordinate.latitude), \(coordinates.coordinate.longitude)";
+        annotation.subtitle = String(format: "%.3f, %.3f", coordinates.coordinate.latitude, coordinates.coordinate.longitude)
         
         return annotation
 	}

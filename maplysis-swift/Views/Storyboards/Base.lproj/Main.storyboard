@@ -20,8 +20,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDp-73-eRW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="fmt-Ld-4Zu" appends="YES" id="Ics-En-2Ns"/>
+                                    <outletCollection property="gestureRecognizers" destination="au2-LB-XDN" appends="YES" id="sog-9M-YS6"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wW-70-CIO" userLabel="OptionsButton">
@@ -82,17 +83,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="locationButton" destination="DE2-Gd-Nvi" id="xHh-54-gYb"/>
-                        <outlet property="longPress" destination="fmt-Ld-4Zu" id="sqC-gK-NYj"/>
+                        <outlet property="mapTap" destination="au2-LB-XDN" id="oOB-S1-NNy"/>
                         <outlet property="mapView" destination="PDp-73-eRW" id="tZV-ac-MN4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duf-KW-1FJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fmt-Ld-4Zu" userLabel="GetLocationAtTouchPoint">
+                <tapGestureRecognizer id="au2-LB-XDN">
                     <connections>
-                        <action selector="getLocationAtTouchPoint:" destination="NMV-zz-eXE" id="cF0-nS-cvl"/>
-                        <outlet property="delegate" destination="NMV-zz-eXE" id="tWU-SS-uWp"/>
+                        <action selector="getLocationAtTouchPoint:" destination="NMV-zz-eXE" id="IFD-ep-SmS"/>
+                        <outlet property="delegate" destination="NMV-zz-eXE" id="LQj-Aa-Zqh"/>
                     </connections>
-                </pongPressGestureRecognizer>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="671" y="75"/>
         </scene>
