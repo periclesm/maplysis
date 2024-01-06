@@ -141,8 +141,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Constant location updates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6Y-Zy-wJa">
-                                                    <rect key="frame" x="16" y="15" width="200" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="16" y="16" width="180" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -169,32 +169,32 @@
                             <tableViewSection headerTitle="Map" footerTitle="Map options in setting a max zoom level and selecting the map display type." id="jYZ-jS-R0p">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wiv-xR-RsO">
-                                        <rect key="frame" x="20" y="211.33333015441895" width="335" height="91.333335876464844"/>
+                                        <rect key="frame" x="20" y="211.33333015441895" width="335" height="92.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wiv-xR-RsO" id="di4-9S-vUE">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="91.333335876464844"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="92.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Map zoom distance (in meters)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoT-oZ-E0S">
-                                                    <rect key="frame" x="16" y="15.999999999999998" width="236" height="20.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="16" y="16" width="212.33333333333334" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="100" maxValue="10000" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2k-KS-7al">
-                                                    <rect key="frame" x="42.666666666666671" y="52.333333333333336" width="234.66666666666663" height="31.666666666666664"/>
+                                                    <rect key="frame" x="42.666666666666671" y="46" width="234.66666666666663" height="31.333333333333329"/>
                                                     <connections>
                                                         <action selector="setMapZoomLevel" destination="0Pt-dQ-ju6" eventType="valueChanged" id="qo9-B5-LuV"/>
                                                     </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-18-V7U">
-                                                    <rect key="frame" x="16" y="60.666666666666657" width="20.666666666666671" height="14"/>
+                                                    <rect key="frame" x="16" y="54" width="20.666666666666671" height="14.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuo-e1-BbY">
-                                                    <rect key="frame" x="283.33333333333331" y="60.666666666666657" width="35.666666666666686" height="14"/>
+                                                    <rect key="frame" x="283.33333333333331" y="54" width="35.666666666666686" height="14.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -208,8 +208,8 @@
                                                 <constraint firstItem="Fuo-e1-BbY" firstAttribute="centerY" secondItem="F2k-KS-7al" secondAttribute="centerY" id="YDo-bs-gDk"/>
                                                 <constraint firstItem="F2k-KS-7al" firstAttribute="leading" secondItem="c9i-18-V7U" secondAttribute="trailing" constant="8" id="Zt8-Ma-opu"/>
                                                 <constraint firstItem="FoT-oZ-E0S" firstAttribute="leading" secondItem="di4-9S-vUE" secondAttribute="leading" constant="16" id="ejC-Ac-cIu"/>
-                                                <constraint firstItem="F2k-KS-7al" firstAttribute="top" secondItem="FoT-oZ-E0S" secondAttribute="bottom" constant="16" id="jkd-pw-Bdr"/>
-                                                <constraint firstAttribute="bottom" secondItem="F2k-KS-7al" secondAttribute="bottom" constant="8.5" id="mk2-lm-Uk7"/>
+                                                <constraint firstItem="F2k-KS-7al" firstAttribute="top" secondItem="FoT-oZ-E0S" secondAttribute="bottom" constant="12" id="jkd-pw-Bdr"/>
+                                                <constraint firstAttribute="bottom" secondItem="F2k-KS-7al" secondAttribute="bottom" constant="16" id="mk2-lm-Uk7"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FoT-oZ-E0S" secondAttribute="trailing" constant="16" id="rzO-Il-WUI"/>
                                                 <constraint firstItem="Fuo-e1-BbY" firstAttribute="leading" secondItem="F2k-KS-7al" secondAttribute="trailing" constant="8" id="w7S-6b-zix"/>
                                             </constraints>
@@ -218,20 +218,20 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gys-1u-FDU">
-                                        <rect key="frame" x="20" y="302.66666603088379" width="335" height="99.666664123535156"/>
+                                        <rect key="frame" x="20" y="303.66666603088379" width="335" height="93.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gys-1u-FDU" id="igT-qT-psc">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="99.666664123535156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="93.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Map type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9Z-Y0-LI0">
-                                                    <rect key="frame" x="16" y="15.999999999999998" width="72" height="20.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="16" y="16" width="64.333333333333329" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lvr-KU-yPV" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
-                                                    <rect key="frame" x="37.666666666666657" y="52.333333333333336" width="260" height="32.333333333333321"/>
+                                                    <rect key="frame" x="37.666666666666657" y="46" width="260" height="32.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="owR-IS-fBE"/>
                                                     </constraints>
@@ -251,7 +251,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l9Z-Y0-LI0" secondAttribute="trailing" constant="16" id="9eU-fR-kr1"/>
                                                 <constraint firstAttribute="bottom" secondItem="lvr-KU-yPV" secondAttribute="bottom" constant="16" id="Kio-vx-cVd"/>
                                                 <constraint firstItem="l9Z-Y0-LI0" firstAttribute="top" secondItem="igT-qT-psc" secondAttribute="top" constant="16" id="Wmf-sY-lJO"/>
-                                                <constraint firstItem="lvr-KU-yPV" firstAttribute="top" secondItem="l9Z-Y0-LI0" secondAttribute="bottom" constant="16" id="dtu-Rp-fC4"/>
+                                                <constraint firstItem="lvr-KU-yPV" firstAttribute="top" secondItem="l9Z-Y0-LI0" secondAttribute="bottom" constant="12" id="dtu-Rp-fC4"/>
                                                 <constraint firstItem="lvr-KU-yPV" firstAttribute="centerX" secondItem="igT-qT-psc" secondAttribute="centerX" id="uPA-dK-Ha4"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -260,45 +260,58 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Geocoding" id="sW1-K9-iOi">
-                                <string key="footerTitle">Resolving location coordinates from address (geocoding) or the address from coordinates (reverse geocoding) using a specific service.
+                                <string key="footerTitle">Resolving location coordinates from address (geocoding) or the address from coordinates (reverse geocoding) using the selected service.
 
 NOTE: Testflight app does not support Google Geocoding. Google Maps API key must be added in code and rebuild the app to enable.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dHN-Yf-ku8">
-                                        <rect key="frame" x="20" y="493.66666221618652" width="335" height="100"/>
+                                        <rect key="frame" x="20" y="488.33333396911621" width="335" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dHN-Yf-ku8" id="Vob-Fx-2FY">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Geocoding provider (forward &amp; reverse)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbP-2V-asb">
-                                                    <rect key="frame" x="16" y="16" width="302" height="20.666666666666671"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
-                                                    <rect key="frame" x="87.666666666666686" y="52.666666666666664" width="160" height="32.333333333333336"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-s4-jVe">
+                                                    <rect key="frame" x="16" y="16" width="303" height="89"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Geocoding provider (forward &amp; reverse)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbP-2V-asb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="303" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f68-9i-YDJ" customClass="MASegmentedControl" customModule="maplysis_swift" customModuleProvider="target">
+                                                            <rect key="frame" x="21.666666666666657" y="30" width="260" height="32.333333333333329"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="HaI-9o-1qp"/>
+                                                            </constraints>
+                                                            <segments>
+                                                                <segment title="Apple"/>
+                                                                <segment title="Google" enabled="NO"/>
+                                                                <segment title="Bing"/>
+                                                            </segments>
+                                                            <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
+                                                            <connections>
+                                                                <action selector="setGeocoder" destination="0Pt-dQ-ju6" eventType="valueChanged" id="cmf-wC-iPy"/>
+                                                            </connections>
+                                                        </segmentedControl>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Maps Geocoding is not available!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHK-pT-Toc">
+                                                            <rect key="frame" x="28.333333333333329" y="73.333333333333329" width="246.33333333333337" height="15.666666666666671"/>
+                                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                                            <color key="textColor" systemColor="systemRedColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="8HC-iQ-NxD"/>
+                                                        <constraint firstItem="HbP-2V-asb" firstAttribute="width" secondItem="iA2-s4-jVe" secondAttribute="width" id="zU3-2m-s8S"/>
                                                     </constraints>
-                                                    <segments>
-                                                        <segment title="Apple"/>
-                                                        <segment title="Google"/>
-                                                    </segments>
-                                                    <color key="selectedSegmentTintColor" systemColor="systemPurpleColor"/>
-                                                    <connections>
-                                                        <action selector="setGeocoder" destination="0Pt-dQ-ju6" eventType="valueChanged" id="cmf-wC-iPy"/>
-                                                    </connections>
-                                                </segmentedControl>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="f68-9i-YDJ" firstAttribute="top" secondItem="HbP-2V-asb" secondAttribute="bottom" constant="16" id="Aki-6D-MHx"/>
-                                                <constraint firstAttribute="bottom" secondItem="f68-9i-YDJ" secondAttribute="bottom" constant="16" id="SYJ-wr-jTW"/>
-                                                <constraint firstItem="HbP-2V-asb" firstAttribute="top" secondItem="Vob-Fx-2FY" secondAttribute="top" constant="16" id="THi-jT-xSa"/>
-                                                <constraint firstItem="HbP-2V-asb" firstAttribute="leading" secondItem="Vob-Fx-2FY" secondAttribute="leading" constant="16" id="cBy-bp-oMF"/>
-                                                <constraint firstItem="f68-9i-YDJ" firstAttribute="centerX" secondItem="Vob-Fx-2FY" secondAttribute="centerX" id="i75-aT-O3z"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HbP-2V-asb" secondAttribute="trailing" constant="16" id="t0n-5X-KFG"/>
+                                                <constraint firstAttribute="bottom" secondItem="iA2-s4-jVe" secondAttribute="bottom" constant="16" id="6q9-oq-OuK"/>
+                                                <constraint firstAttribute="trailing" secondItem="iA2-s4-jVe" secondAttribute="trailing" constant="16" id="IMH-IG-VBw"/>
+                                                <constraint firstItem="iA2-s4-jVe" firstAttribute="leading" secondItem="Vob-Fx-2FY" secondAttribute="leading" constant="16" id="aCM-yM-UQd"/>
+                                                <constraint firstItem="iA2-s4-jVe" firstAttribute="top" secondItem="Vob-Fx-2FY" secondAttribute="top" constant="16" id="cUz-Xx-BKe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
@@ -319,6 +332,7 @@ NOTE: Testflight app does not support Google Geocoding. Google Maps API key must
                     <connections>
                         <outlet property="contLocSwitch" destination="GfF-9u-d3W" id="VU6-so-u7h"/>
                         <outlet property="geocoderSegm" destination="f68-9i-YDJ" id="sD0-oA-Dxr"/>
+                        <outlet property="googleNote" destination="yHK-pT-Toc" id="PSD-rl-w9U"/>
                         <outlet property="mZoomProgress" destination="F2k-KS-7al" id="aVo-aI-tTr"/>
                         <outlet property="mapTypeSegm" destination="lvr-KU-yPV" id="Ub5-ws-WvZ"/>
                     </connections>
@@ -335,13 +349,16 @@ NOTE: Testflight app does not support Google Geocoding. Google Maps API key must
         <image name="location" catalog="system" width="128" height="119"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

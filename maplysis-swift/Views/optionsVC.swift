@@ -16,6 +16,7 @@ class optionsVC: UITableViewController {
 	@IBOutlet weak var mZoomProgress: UISlider!
 	@IBOutlet weak var mapTypeSegm: UISegmentedControl!
 	@IBOutlet weak var geocoderSegm: UISegmentedControl!
+    @IBOutlet weak var googleNote: UILabel!
     
     var continuousUpdates: ((Bool) -> Void)?
     var mapTypeUpdate: (() -> Void)?

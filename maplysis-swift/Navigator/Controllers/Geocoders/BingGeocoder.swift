@@ -39,7 +39,6 @@ class BingGeocoder: NSObject {
             debugPrint(data)
             
             return data.resourceSets.first?.resources.first?.name
-            
         } catch {
             debugPrint(error.localizedDescription)
             return nil
@@ -47,7 +46,6 @@ class BingGeocoder: NSObject {
     }
     
     func geocoder(address: String) async -> CLLocation? {
-        
         let urlRequestString = "http://dev.virtualearth.net/REST/v1/Locations/\(address)?includeNeighborhood=0&maxResults=1&include={includeValue}&key=\(AppPreferences.shared.BingMapsAPIKey)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         let urlRequest = URL(string: urlRequestString!)
@@ -73,7 +71,6 @@ class BingGeocoder: NSObject {
             
             let gglocation = CLLocation(latitude: Double(lat), longitude: Double(lon))
             return gglocation
-            
         } catch {
             debugPrint(error.localizedDescription)
             return nil

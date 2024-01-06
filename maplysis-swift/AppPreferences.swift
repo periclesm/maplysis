@@ -26,6 +26,7 @@ class AppPreferences: NSObject {
     var defaults = UserDefaults.standard
     
     let GMapsAPIKey: String = "" // <#T##Insert your Google API KEY here#>
+    let BingMapsAPIKey: String = "" // <#T##Insert your Bing Maps API KEY here#>
     
     var geocoder: GeocoderService {
         set {

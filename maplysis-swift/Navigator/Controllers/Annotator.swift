@@ -30,15 +30,17 @@ class Annotator: NSObject {
         case .Apple:
             debugPrint("Using Apple Geocoding")
             
-//            let aGeocoder = AppleGeocoder()
-//            aGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo, error) in
-//                locAnnotation.subtitle = addressInfo?.formattedAddress
-//                await sender.addAnnotation(locAnnotation)
-//                
-//                if !AppPreferences.shared.continuousUpdates {
-//                    await sender.selectAnnotation(locAnnotation, animated: true)
-//                }
-//            }
+            let aGeocoder = AppleGeocoder()
+            let address = await aGeocoder.reverseGeocoder(location: locationCoord)
+            if let error = address.1 {
+                debugPrint(error.localizedDescription)
+            }
+            else {
+                if let info = address.0 {
+                    locAnnotation.subtitle = info.formattedAddress
+                    await sender.addAnnotation(locAnnotation)
+                }
+            }
             
             /*
              This is not working. Check the comments in GoogleGeocoder, read the Google Maps API documentation, greate a Key using your account and 
