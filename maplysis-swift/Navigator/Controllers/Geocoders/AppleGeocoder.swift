@@ -13,37 +13,39 @@ import CoreLocation
 
 class AppleGeocoder: NSObject {
     
-    func reverseGeocoder(location: CLLocation, completion: @escaping (Address?, Error?) -> ()) {
-        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
-            if error != nil {
-                debugPrint(error!.localizedDescription)
-                completion(nil, error)
+    func reverseGeocoder(coordinates: CLLocation) async -> (Address?, Error?) {
+        let aGeocoder = CLGeocoder()
+        
+        do {
+            let placemarks = try await aGeocoder.reverseGeocodeLocation(coordinates)
+            var address = Address()
+            
+            if !placemarks.isEmpty {
+                address.placemark = placemarks.first
+                debugPrint(placemarks.first as Any)
+                return (address, nil)
             }
             else {
-                if let marks = placemarks {
-                    let mark = marks.first
-                    
-                    var addressInfo = Address()
-                    addressInfo.placemark = mark
-                    debugPrint(mark as Any)
-                    completion(addressInfo, nil)
-                }
+                return (nil, nil)
             }
+        } catch {
+            return (nil, error)
         }
     }
     
-    func geocoder(address: String, completion: @escaping (CLLocation?, Error?) -> ()) {
-        CLGeocoder().geocodeAddressString(address) { (placemarks, error) in
-            if error != nil {
-                debugPrint(error!.localizedDescription)
-                completion(nil, error)
+    func geocoder(address: String) async -> (CLLocation?, Error?) {
+        let aGeocoder = CLGeocoder()
+        
+        do {
+            let placemarks = try await aGeocoder.geocodeAddressString(address)
+            if !placemarks.isEmpty {
+                return (placemarks.first?.location, nil)
             }
             else {
-                if let marks = placemarks {
-                    let mark = marks.first
-                    completion(mark?.location, nil)
-                }
+                return (nil, nil)
             }
+        } catch {
+            return (nil, error)
         }
     }
 }

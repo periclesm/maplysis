@@ -93,14 +93,14 @@ extension LocationController: CLLocationManagerDelegate {
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		print("[Location] Failed Location: \(error.localizedDescription)")
+		debugPrint("[Location] Failed Location: \(error.localizedDescription)")
 		
 		//mapDelegate?.locationErrorWithDeviceService(enabled: CLLocationManager.locationServicesEnabled())
 		locManager.stopUpdatingLocation()
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		print("location: \(String(describing: locations.last))");
+        debugPrint("location: \(String(describing: locations.last))");
 		
         location.resetLocation()
         location.currentLocation = locations.last

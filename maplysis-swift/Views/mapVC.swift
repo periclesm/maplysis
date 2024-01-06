@@ -20,7 +20,7 @@ class mapVC: UIViewController {
 	
 	@IBOutlet weak var locationButton: MALocationButton!
 	@IBOutlet weak var mapView: MKMapView!
-	@IBOutlet weak var longPress: UIGestureRecognizer!
+	@IBOutlet weak var mapTap: UIGestureRecognizer!
 	
 	let locController = LocationController()
 
@@ -88,14 +88,16 @@ class mapVC: UIViewController {
 		}
 	}
 	
-	@IBAction func getLocationAtTouchPoint(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        if gestureRecognizer.state == .ended {
-            mapView.removeAnnotations((mapView?.annotations)!)
-            
-            let touchPoint = longPress?.location(in: mapView)
-            locController.location.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
-            
-            Annotator.displayAnnotation(locController.location.currentLocation!, userSelected: true, sender: mapView!)
+	@IBAction func getLocationAtTouchPoint(_ gestureRecognizer: UITapGestureRecognizer) {
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let touchPoint = mapTap.location(in: mapView)
+        locController.location.touchToLocation(touchPoint: touchPoint, sender: mapView)
+        
+        Task(priority: .userInitiated) {
+            if let annotation = await Annotator.displayAnnotation(self.locController.location.currentLocation, userSelected: true) {
+                mapView.addAnnotation(annotation)
+            }
         }
 	}
 }
@@ -110,7 +112,11 @@ extension mapVC: MapDelegate {
 		RegionManager.getRegion(locationRegion: locController.location.currentLocation!, sender: mapView)
 		
 		if !AppPreferences.shared.continuousUpdates {
-			Annotator.displayAnnotation(locController.location.currentLocation, userSelected: false, sender: mapView)
+            Task(priority: .utility) {
+                if let annotation = await Annotator.displayAnnotation(locController.location.currentLocation, userSelected: false) {
+                    mapView.addAnnotation(annotation)
+                }
+            }
 		}
 	}
 	
