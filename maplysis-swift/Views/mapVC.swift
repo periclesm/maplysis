@@ -96,7 +96,9 @@ class mapVC: UIViewController {
             locController.location.touchToLocation(touchPoint: touchPoint!, sender: mapView!)
             
             Task(priority: .medium) {
-                await Annotator.displayAnnotation(locController.location.currentLocation!, userSelected: true, sender: mapView!)
+                if let annotation = await Annotator.displayAnnotation(self.locController.location.currentLocation, userSelected: true) {
+                    mapView.addAnnotation(annotation)
+                }
             }
         }
 	}
@@ -113,7 +115,9 @@ extension mapVC: MapDelegate {
 		
 		if !AppPreferences.shared.continuousUpdates {
             Task(priority: .medium) {
-                await Annotator.displayAnnotation(locController.location.currentLocation, userSelected: false, sender: mapView)
+                if let annotation = await Annotator.displayAnnotation(locController.location.currentLocation, userSelected: false) {
+                    mapView.addAnnotation(annotation)
+                }
             }
 		}
 	}

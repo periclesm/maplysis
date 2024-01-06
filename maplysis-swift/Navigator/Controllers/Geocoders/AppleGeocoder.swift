@@ -13,11 +13,11 @@ import CoreLocation
 
 class AppleGeocoder: NSObject {
     
-    func reverseGeocoder(location: CLLocation) async -> (Address?, Error?) {
+    func reverseGeocoder(coordinates: CLLocation) async -> (Address?, Error?) {
         let aGeocoder = CLGeocoder()
         
         do {
-            let placemarks = try await aGeocoder.reverseGeocodeLocation(location)
+            let placemarks = try await aGeocoder.reverseGeocodeLocation(coordinates)
             var address = Address()
             
             if !placemarks.isEmpty {

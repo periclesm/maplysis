@@ -20,10 +20,10 @@ class GoogleGeocoder: NSObject {
      * ALSO NOTE: Since the introduction to the API Keys, this service will work only if you provide with a valid key. For obvious reasons, such key is not included here...
      */
     
-    func reverseGeocoder(location: CLLocation, completion: @escaping (String?) -> ()) {
+    func reverseGeocoder(coordinates: CLLocation, completion: @escaping (String?) -> ()) {
         DispatchQueue.main.async {
-            let latString = "\(location.coordinate.latitude)"
-            let lonString = "\(location.coordinate.longitude)"
+            let latString = "\(coordinates.coordinate.latitude)"
+            let lonString = "\(coordinates.coordinate.longitude)"
             
             //make sure you enter the correct API key for Google Geocoding API in App Preferences
             let requestURLString = "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(latString),\(lonString)&key=\(AppPreferences.shared.GMapsAPIKey)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)

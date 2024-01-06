@@ -13,9 +13,9 @@ import CoreLocation
 
 class BingGeocoder: NSObject {
     
-    func reverseGeocoder(location: CLLocation) async -> String? {
-        let latString = "\(location.coordinate.latitude)"
-        let lonString = "\(location.coordinate.longitude)"
+    func reverseGeocoder(coordinates: CLLocation) async -> String? {
+        let latString = "\(coordinates.coordinate.latitude)"
+        let lonString = "\(coordinates.coordinate.longitude)"
         
         let urlRequestString = "https://dev.virtualearth.net/REST/v1/Locations/\(latString),\(lonString)?includeEntityTypes=Address, Postcode1,AdminDivision1,CountryRegion&includeNeighborhood=0&include=ciso2&key=\(AppPreferences.shared.BingMapsAPIKey)"
             .addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)

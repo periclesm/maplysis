@@ -30,14 +30,14 @@ struct BingResource: Decodable {
 }
 
 struct BingAddress: Decodable {
-    var addressLine: String
-    var adminDistrict: String
-    var adminDistrict2: String
-    var countryRegion: String
-    var formattedAddress: String
-    var locality: String
-    var postalCode: String
-    var countryRegionIso2: String
+    var addressLine: String?
+    var adminDistrict: String?
+    var adminDistrict2: String?
+    var countryRegion: String?
+    var formattedAddress: String?
+    var locality: String?
+    var postalCode: String?
+    var countryRegionIso2: String?
 }
 
 struct BingPoint: Decodable {

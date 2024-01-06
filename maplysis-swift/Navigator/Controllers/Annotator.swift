@@ -12,38 +12,32 @@ import MapKit
 
 class Annotator: NSObject {
 	
-	class func displayAnnotation(_ locationCoord: CLLocation?, userSelected: Bool, sender: MKMapView) async {
+	class func displayAnnotation(_ coordinates: CLLocation?, userSelected: Bool) async -> MKPointAnnotation? {
         //If, for any reason, there is no location, just return...
-        guard let locationCoord else { return }
+        guard let coordinates else { return nil }
         
-		let locAnnotation = MKPointAnnotation()
-		locAnnotation.coordinate = locationCoord.coordinate
-		
-		if !userSelected {
-			locAnnotation.title = "Current Location";
-		}
-		else {
-			locAnnotation.title = "Selected Location";
-		}
+		let annotation = MKPointAnnotation()
+		annotation.coordinate = coordinates.coordinate
 		       
         switch AppPreferences.shared.geocoder {
+        
         case .Apple:
             debugPrint("Using Apple Geocoding")
             
             let aGeocoder = AppleGeocoder()
-            let address = await aGeocoder.reverseGeocoder(location: locationCoord)
+            let address = await aGeocoder.reverseGeocoder(coordinates: coordinates)
             if let error = address.1 {
                 debugPrint(error.localizedDescription)
+                return nil
             }
             else {
                 if let info = address.0 {
-                    locAnnotation.subtitle = info.formattedAddress
-                    await sender.addAnnotation(locAnnotation)
+                    annotation.title = info.formattedAddress
                 }
             }
             
             /*
-             This is not working. Check the comments in GoogleGeocoder, read the Google Maps API documentation, greate a Key using your account and 
+             This is not working. Check the comments in GoogleGeocoder, read the Google Maps API documentation, greate a Key using your account and
              */
         case .Google:
             debugPrint("Using Google Geocoding")
@@ -62,9 +56,13 @@ class Annotator: NSObject {
             debugPrint("Using Bing Maps Geocoding ")
             
             let bmGeocoder = BingGeocoder()
-            let address = await bmGeocoder.reverseGeocoder(location: locationCoord)
-            locAnnotation.subtitle = address
-            await sender.addAnnotation(locAnnotation)
+            let address = await bmGeocoder.reverseGeocoder(coordinates: coordinates)
+            annotation.title = address
+            #warning ("check for error in Bing")
         }
+        
+        annotation.subtitle = "\(coordinates.coordinate.latitude), \(coordinates.coordinate.longitude)";
+        
+        return annotation
 	}
 }
