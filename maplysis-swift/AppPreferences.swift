@@ -11,6 +11,7 @@ import UIKit
 enum GeocoderService: Int {
     case Apple = 0
     case Google
+    case Bing
 }
 
 enum MapType: Int {
@@ -23,6 +24,9 @@ class AppPreferences: NSObject {
     
     static var shared = AppPreferences()
     var defaults = UserDefaults.standard
+    
+    let GMapsAPIKey: String = "" // <#T##Insert your Google API KEY here#>
+    let BingMapsAPIKey: String = "" // <#T##Insert your Bing Maps API KEY here#>
     
     var geocoder: GeocoderService {
         set {
@@ -53,14 +57,14 @@ class AppPreferences: NSObject {
         }
     }
     
-    var mapZoom: Float {
+    var mapZoom: Double {
         set {
 			defaults.set(newValue, forKey: "MapZoomLevel")
 			
 		}
         get {
             if defaults.object(forKey: "MapZoomLevel") != nil {
-                return defaults.float(forKey: "MapZoomLevel")
+                return defaults.double(forKey: "MapZoomLevel")
             }
             else {
                 return 500.0
