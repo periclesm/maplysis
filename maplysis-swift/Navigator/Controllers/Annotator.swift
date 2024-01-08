@@ -16,8 +16,9 @@ class Annotator: NSObject {
         //If, for any reason, there is no location, just return...
         guard let coordinates else { return nil }
         
-		let annotation = MKPointAnnotation()
+        let annotation = MKPointAnnotation()
 		annotation.coordinate = coordinates.coordinate
+        annotation.subtitle = String(format: "%.3f, %.3f", coordinates.coordinate.latitude, coordinates.coordinate.longitude)
 		       
         switch AppPreferences.shared.geocoder {
         
@@ -60,8 +61,6 @@ class Annotator: NSObject {
             annotation.title = address
             #warning ("check for error in Bing")
         }
-        
-        annotation.subtitle = String(format: "%.3f, %.3f", coordinates.coordinate.latitude, coordinates.coordinate.longitude)
         
         return annotation
 	}
