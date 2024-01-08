@@ -36,7 +36,7 @@ class BingGeocoder: NSObject {
             }
             
             let data: BingResponse = parseData(data: responseData.0)
-            debugPrint(data)
+            //debugPrint(data)
             
             return data.resourceSets.first?.resources.first?.name
         } catch {
@@ -45,6 +45,7 @@ class BingGeocoder: NSObject {
         }
     }
     
+    // Not really used but it's just there...
     func geocoder(address: String) async -> CLLocation? {
         let urlRequestString = "http://dev.virtualearth.net/REST/v1/Locations/\(address)?includeNeighborhood=0&maxResults=1&include={includeValue}&key=\(AppPreferences.shared.BingMapsAPIKey)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
@@ -64,19 +65,19 @@ class BingGeocoder: NSObject {
             }
             
             let data: BingResponse = parseData(data: responseData.0)
-            debugPrint(data)
+            //debugPrint(data)
             
             let lat = data.resourceSets.first?.resources.first?.point.coordinates.first ?? 0.0
             let lon = data.resourceSets.first?.resources.first?.point.coordinates[1] ?? 0.0
-            
-            let gglocation = CLLocation(latitude: Double(lat), longitude: Double(lon))
-            return gglocation
+            return CLLocation(latitude: Double(lat), longitude: Double(lon))
         } catch {
             debugPrint(error.localizedDescription)
             return nil
         }
     }
     
+    
+    //TODO: - Need to move the network code and the Parsing code to a separate class for Bing and Google reuse...
     private func parseData<T: Decodable>(data: Data) -> T {
         do {
             let decoder = JSONDecoder()

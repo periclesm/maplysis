@@ -121,6 +121,8 @@ extension mapVC: MapDelegate {
 	}
 	
 	//MARK: - Display Error Alert
+    
+    //TODO: -- Make a better error reporting message. --
 	func locationErrorWithDeviceService(enabled: Bool) {
 		var title: String?
 		var message: String?

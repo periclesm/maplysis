@@ -20,6 +20,11 @@ class GoogleGeocoder: NSObject {
      * ALSO NOTE: Since the introduction to the API Keys, this service will work only if you provide with a valid key. For obvious reasons, such key is not included here...
      */
     
+    /*
+     Sidenote: I must create a Google Cloud with Billing info to get a working API key and test the Google Maps API.
+     Also I need to await/async this code.
+     Duh... stay tuned...
+     */
     func reverseGeocoder(coordinates: CLLocation, completion: @escaping (String?) -> ()) {
         DispatchQueue.main.async {
             let latString = "\(coordinates.coordinate.latitude)"
@@ -31,11 +36,12 @@ class GoogleGeocoder: NSObject {
             let requestURL = URL(string: requestURLString!)
             
             do {
-				//Change this into an async URLSession call
+				//TODO: - Change this into an async URLSession call
                 let responseData = try Data(contentsOf: requestURL!, options: .mappedIfSafe)
                 
                 if responseData.count > 0 {
                     do {
+                        //TODO: - Sigh... yeah, needs Decodable stuff here...
                         let responseDict = try JSONSerialization.jsonObject(with: responseData, options: []) as! Dictionary<String,Any>
                         let status = responseDict["status"] as! String
                         
@@ -67,6 +73,9 @@ class GoogleGeocoder: NSObject {
      * ALSO NOTE: Since the introduction to the API Keys, this service will work only if you provide with a valid key.
      */
     
+    /*
+     Sidenote: same as above even if this is not used in the app.
+     */
     func geocoder(address: String, completion: @escaping (CLLocation?) -> ()) {
         DispatchQueue.main.async {
             let formattedAddressString = address.replacingOccurrences(of: " ", with: "+")

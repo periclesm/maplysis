@@ -43,23 +43,18 @@ class Annotator: NSObject {
         case .Google:
             debugPrint("Using Google Geocoding")
             
-//            let gGeocoder = GoogleGeocoder()
-//            gGeocoder.reverseGeocoder(location: locationCoord) { (addressInfo) in
-//                locAnnotation.subtitle = addressInfo
-//                sender.addAnnotation(locAnnotation)
-//                
-//                if !AppPreferences.shared.continuousUpdates {
-//                    sender.selectAnnotation(locAnnotation, animated: true)
-//                }
-//            }
+            let gGeocoder = GoogleGeocoder()
+            gGeocoder.reverseGeocoder(coordinates: coordinates) { (addressInfo) in
+                annotation.subtitle = addressInfo
+            }
             
         case .Bing:
             debugPrint("Using Bing Maps Geocoding ")
             
             let bmGeocoder = BingGeocoder()
-            let address = await bmGeocoder.reverseGeocoder(coordinates: coordinates)
-            annotation.title = address
-            #warning ("check for error in Bing")
+            if let address = await bmGeocoder.reverseGeocoder(coordinates: coordinates) {
+                annotation.title = address
+            }
         }
         
         return annotation
