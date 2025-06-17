@@ -1,8 +1,8 @@
 # maplysis
 
-## **IMPORTANT: THIS REPOSITORY HAS BEEN REPLACED AND THE APP IS NOW DEPRECATED AND WILL BE REMOVED IN THE FUTURE. YOU CAN FIND THE NEW VERSION IN* **
+## IMPORTANT: THIS REPOSITORY HAS BEEN REPLACED AND THE APP IS NOW DEPRECATED AND WILL BE REMOVED IN THE FUTURE. YOU CAN FIND THE NEW VERSION IN
 
-[GitHub - periclesm/Mapanalysis: A usecase app for standard use of MapKit in iOS.](https://github.com/periclesm/Mapanalysis)## **
+[GitHub - periclesm/Mapanalysis: A usecase app for standard use of MapKit in iOS.](https://github.com/periclesm/Mapanalysis)
 
 ====
 
